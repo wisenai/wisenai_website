@@ -23,6 +23,12 @@ export function SiteHeader() {
             About
           </Link>
           <Link
+            href="/research"
+            className="text-sm font-medium transition-colors hover:text-sky-300"
+          >
+            Research
+          </Link>
+          <Link
             href="/contact"
             className="text-sm font-medium transition-colors hover:text-sky-300"
           >
@@ -52,6 +58,12 @@ export function SiteHeader() {
             className="block text-sm font-medium transition-colors hover:text-sky-300"
           >
             About
+          </Link>
+          <Link
+            href="/research"
+            className="block text-sm font-medium transition-colors hover:text-sky-300"
+          >
+            Research
           </Link>
           <Link
             href="/contact"
