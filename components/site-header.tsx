@@ -1,5 +1,4 @@
 "use client"
-import Link from "next/link"
 import { Brain, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
@@ -31,11 +30,11 @@ export function SiteHeader({
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-700 bg-slate-900/95 backdrop-blur supports-[backdrop-filter]:bg-slate-900/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
         <Button variant="ghost" className="pl-2 pr-4 flex items-center space-x-2 ml-2" onClick={onHomeClick}>
           <Brain className="h-6 w-6 text-primary" />
-          <span className="text-xl font-bold text-sky-300">WisenAI</span>
+          <span className="text-xl font-bold text-primary">WisenAI</span>
         </Button>
         <div className="flex-1" />
         <nav className="hidden md:flex items-center gap-2">
@@ -43,7 +42,7 @@ export function SiteHeader({
             variant="ghost"
             size="sm"
             onClick={onHomeClick}
-            className="text-sm font-medium transition-colors hover:text-sky-300"
+            className="text-sm font-medium transition-colors hover:text-primary"
           >
             Home
           </Button>
@@ -51,7 +50,7 @@ export function SiteHeader({
             variant="ghost"
             size="sm"
             onClick={onAboutClick}
-            className="text-sm font-medium transition-colors hover:text-sky-300"
+            className="text-sm font-medium transition-colors hover:text-primary"
           >
             About
           </Button>
@@ -59,7 +58,7 @@ export function SiteHeader({
             variant="ghost"
             size="sm"
             onClick={onLeadershipClick}
-            className="text-sm font-medium transition-colors hover:text-sky-300"
+            className="text-sm font-medium transition-colors hover:text-primary"
           >
             Leadership
           </Button>
@@ -67,7 +66,7 @@ export function SiteHeader({
             variant="ghost"
             size="sm"
             onClick={onBlogClick}
-            className="text-sm font-medium transition-colors hover:text-sky-300"
+            className="text-sm font-medium transition-colors hover:text-primary"
           >
             Blog
           </Button>
@@ -75,7 +74,7 @@ export function SiteHeader({
             variant="ghost"
             size="sm"
             onClick={onLearnMoreClick}
-            className="text-sm font-medium transition-colors hover:text-sky-300"
+            className="text-sm font-medium transition-colors hover:text-primary"
           >
             Learn More
           </Button>
@@ -83,7 +82,7 @@ export function SiteHeader({
             variant="ghost"
             size="sm"
             onClick={onContactClick}
-            className="text-sm font-medium transition-colors hover:text-sky-300"
+            className="text-sm font-medium transition-colors hover:text-primary"
           >
             Contact Us
           </Button>
@@ -92,17 +91,12 @@ export function SiteHeader({
               href="https://forms.gle/rAsvHSJAD2fQQrBv6"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium transition-colors hover:text-sky-300"
+              className="text-sm font-medium transition-colors hover:text-primary"
             >
               Sign Up
             </a>
           </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            className="text-sky-300 border-sky-600 hover:bg-sky-900"
-            onClick={onForAICompaniesClick}
-          >
+          <Button variant="outline" size="sm" onClick={onForAICompaniesClick}>
             For AI Companies
           </Button>
         </nav>
@@ -112,7 +106,7 @@ export function SiteHeader({
         </Button>
       </div>
       {isMenuOpen && (
-        <nav className="md:hidden py-4 px-6 space-y-2">
+        <nav className="md:hidden py-4 px-6 space-y-2 border-t border-border">
           <Button
             variant="ghost"
             size="sm"
@@ -169,7 +163,7 @@ export function SiteHeader({
           <Button
             variant="outline"
             size="sm"
-            className="w-full text-sky-300 border-sky-600 hover:bg-sky-900"
+            className="w-full bg-transparent"
             onClick={() => handleNavigation(onForAICompaniesClick)}
           >
             For AI Companies
