@@ -18,8 +18,8 @@ export function BlogSummitImage() {
 
     // Create gradient background
     const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
-    gradient.addColorStop(0, "rgba(14, 165, 233, 0.1)") // sky-500 with low opacity
-    gradient.addColorStop(1, "rgba(56, 189, 248, 0.1)") // sky-400 with low opacity
+    gradient.addColorStop(0, "rgba(34, 197, 94, 0.1)")
+    gradient.addColorStop(1, "rgba(16, 185, 129, 0.1)")
     ctx.fillStyle = gradient
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
@@ -42,7 +42,7 @@ export function BlogSummitImage() {
         }
       })
     })
-    ctx.strokeStyle = "rgba(56, 189, 248, 0.2)" // sky-400 with low opacity
+    ctx.strokeStyle = "rgba(34, 197, 94, 0.2)"
     ctx.stroke()
 
     // Draw nodes
@@ -50,22 +50,22 @@ export function BlogSummitImage() {
       // Outer circle
       ctx.beginPath()
       ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2)
-      ctx.fillStyle = "rgba(56, 189, 248, 0.1)"
+      ctx.fillStyle = "rgba(34, 197, 94, 0.1)"
       ctx.fill()
-      ctx.strokeStyle = "rgba(56, 189, 248, 0.4)"
+      ctx.strokeStyle = "rgba(34, 197, 94, 0.4)"
       ctx.stroke()
 
       // Inner circle
       ctx.beginPath()
       ctx.arc(node.x, node.y, node.radius * 0.6, 0, Math.PI * 2)
-      ctx.fillStyle = "rgba(56, 189, 248, 0.2)"
+      ctx.fillStyle = "rgba(34, 197, 94, 0.2)"
       ctx.fill()
     })
 
     // Add text elements representing AI concepts
     const terms = ["Innovation", "Education", "Future", "Technology", "AI"]
     ctx.font = "bold 16px Arial"
-    ctx.fillStyle = "rgba(56, 189, 248, 0.6)"
+    ctx.fillStyle = "rgba(34, 197, 94, 0.6)"
     terms.forEach((term, i) => {
       const x = 150 + i * 150
       const y = 350

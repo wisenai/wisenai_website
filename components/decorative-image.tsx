@@ -1,6 +1,6 @@
-'use client'
+"use client"
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react"
 
 export function DecorativeImage() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -9,24 +9,24 @@ export function DecorativeImage() {
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const ctx = canvas.getContext('2d')
+    const ctx = canvas.getContext("2d")
     if (!ctx) return
 
     canvas.width = 600
     canvas.height = 400
 
     const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
-    gradient.addColorStop(0, 'rgba(30, 41, 59, 0.1)')
-    gradient.addColorStop(1, 'rgba(30, 41, 59, 0.4)')
+    gradient.addColorStop(0, "rgba(34, 197, 94, 0.1)")
+    gradient.addColorStop(1, "rgba(34, 197, 94, 0.3)")
     ctx.fillStyle = gradient
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
     const drawNode = (x: number, y: number, radius: number) => {
       ctx.beginPath()
       ctx.arc(x, y, radius, 0, Math.PI * 2)
-      ctx.fillStyle = 'rgba(56, 189, 248, 0.1)'
+      ctx.fillStyle = "rgba(34, 197, 94, 0.15)"
       ctx.fill()
-      ctx.strokeStyle = 'rgba(56, 189, 248, 0.6)'
+      ctx.strokeStyle = "rgba(34, 197, 94, 0.6)"
       ctx.stroke()
     }
 
@@ -34,7 +34,7 @@ export function DecorativeImage() {
       ctx.beginPath()
       ctx.moveTo(x1, y1)
       ctx.lineTo(x2, y2)
-      ctx.strokeStyle = 'rgba(56, 189, 248, 0.2)'
+      ctx.strokeStyle = "rgba(34, 197, 94, 0.3)"
       ctx.stroke()
     }
 
@@ -46,7 +46,7 @@ export function DecorativeImage() {
       { x: 400, y: 350, radius: 30 },
     ]
 
-    nodes.forEach(node => drawNode(node.x, node.y, node.radius))
+    nodes.forEach((node) => drawNode(node.x, node.y, node.radius))
 
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
