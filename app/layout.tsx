@@ -1,19 +1,21 @@
 import type React from "react"
-import { Inter, Space_Grotesk } from "next/font/google"
+import { Crimson_Pro, Inter } from "next/font/google"
 import { Toaster } from "@/components/ui/toaster"
 import { PageTransition } from "@/components/page-transition"
 import "./globals.css"
+
+const crimsonPro = Crimson_Pro({
+  subsets: ["latin"],
+  variable: "--font-crimson",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+})
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
-})
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  display: "swap",
+  weight: ["400", "500", "600"],
 })
 
 export const metadata = {
@@ -33,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans bg-slate-900 text-slate-50`}>
+      <body className={`${crimsonPro.variable} ${inter.variable} font-sans bg-slate-900 text-slate-50`}>
         <PageTransition>{children}</PageTransition>
         <Toaster />
       </body>
