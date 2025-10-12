@@ -15,45 +15,45 @@ export function DecorativeImage() {
     canvas.width = 600
     canvas.height = 400
 
-    // Modern gradient background
+    // Vibrant gradient background
     const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
-    gradient.addColorStop(0, "rgba(139, 92, 246, 0.1)")
-    gradient.addColorStop(0.5, "rgba(168, 85, 247, 0.15)")
-    gradient.addColorStop(1, "rgba(192, 132, 252, 0.1)")
+    gradient.addColorStop(0, "rgba(167, 90, 255, 0.2)")
+    gradient.addColorStop(0.5, "rgba(198, 102, 255, 0.25)")
+    gradient.addColorStop(1, "rgba(224, 128, 255, 0.2)")
     ctx.fillStyle = gradient
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
     const drawNode = (x: number, y: number, radius: number) => {
-      // Glow effect
-      const glowGradient = ctx.createRadialGradient(x, y, radius * 0.5, x, y, radius * 1.5)
-      glowGradient.addColorStop(0, "rgba(139, 92, 246, 0.3)")
-      glowGradient.addColorStop(1, "rgba(139, 92, 246, 0)")
+      // Vibrant glow effect
+      const glowGradient = ctx.createRadialGradient(x, y, radius * 0.5, x, y, radius * 2)
+      glowGradient.addColorStop(0, "rgba(198, 102, 255, 0.5)")
+      glowGradient.addColorStop(1, "rgba(198, 102, 255, 0)")
       ctx.fillStyle = glowGradient
-      ctx.fillRect(x - radius * 1.5, y - radius * 1.5, radius * 3, radius * 3)
+      ctx.fillRect(x - radius * 2, y - radius * 2, radius * 4, radius * 4)
 
-      // Main node
+      // Main node with vibrant colors
       ctx.beginPath()
       ctx.arc(x, y, radius, 0, Math.PI * 2)
       const nodeGradient = ctx.createRadialGradient(x, y, 0, x, y, radius)
-      nodeGradient.addColorStop(0, "rgba(168, 85, 247, 0.4)")
-      nodeGradient.addColorStop(1, "rgba(139, 92, 246, 0.2)")
+      nodeGradient.addColorStop(0, "rgba(224, 128, 255, 0.6)")
+      nodeGradient.addColorStop(1, "rgba(167, 90, 255, 0.4)")
       ctx.fillStyle = nodeGradient
       ctx.fill()
-      ctx.strokeStyle = "rgba(168, 85, 247, 0.8)"
-      ctx.lineWidth = 2
+      ctx.strokeStyle = "rgba(198, 102, 255, 1)"
+      ctx.lineWidth = 2.5
       ctx.stroke()
     }
 
     const drawConnection = (x1: number, y1: number, x2: number, y2: number) => {
       const connectionGradient = ctx.createLinearGradient(x1, y1, x2, y2)
-      connectionGradient.addColorStop(0, "rgba(139, 92, 246, 0.3)")
-      connectionGradient.addColorStop(0.5, "rgba(192, 132, 252, 0.4)")
-      connectionGradient.addColorStop(1, "rgba(139, 92, 246, 0.3)")
+      connectionGradient.addColorStop(0, "rgba(167, 90, 255, 0.5)")
+      connectionGradient.addColorStop(0.5, "rgba(224, 128, 255, 0.6)")
+      connectionGradient.addColorStop(1, "rgba(167, 90, 255, 0.5)")
       ctx.beginPath()
       ctx.moveTo(x1, y1)
       ctx.lineTo(x2, y2)
       ctx.strokeStyle = connectionGradient
-      ctx.lineWidth = 2
+      ctx.lineWidth = 2.5
       ctx.stroke()
     }
 
@@ -77,7 +77,7 @@ export function DecorativeImage() {
   }, [])
 
   return (
-    <div className="relative w-full aspect-[3/2] rounded-2xl overflow-hidden shadow-2xl shadow-primary/20">
+    <div className="relative w-full aspect-[3/2] rounded-2xl overflow-hidden shadow-2xl shadow-primary/30">
       <canvas
         ref={canvasRef}
         className="w-full h-full object-cover"

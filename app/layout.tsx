@@ -1,14 +1,14 @@
 import type React from "react"
-import { Crimson_Pro, Inter } from "next/font/google"
+import { Playfair_Display, Inter } from "next/font/google"
 import { Toaster } from "@/components/ui/toaster"
 import { PageTransition } from "@/components/page-transition"
 import "./globals.css"
 
-const crimsonPro = Crimson_Pro({
+const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-crimson",
+  variable: "--font-playfair",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
 })
 
 const inter = Inter({
@@ -35,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${crimsonPro.variable} ${inter.variable} font-sans bg-slate-900 text-slate-50`}>
+      <body className={`${playfairDisplay.variable} ${inter.variable} font-sans bg-slate-900 text-slate-50`}>
         <PageTransition>{children}</PageTransition>
         <Toaster />
       </body>
