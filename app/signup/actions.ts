@@ -28,4 +28,3 @@ export async function submitApplication(formData: FormData) {
     return { error: 'Failed to submit application. Please try again.' }
   }
 }
-
