@@ -16,8 +16,9 @@ export function BioAnimation() {
     canvas.height = 400
 
     const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
-    gradient.addColorStop(0, "rgba(34, 197, 94, 0.2)")
-    gradient.addColorStop(1, "rgba(16, 185, 129, 0.2)")
+    gradient.addColorStop(0, "rgba(139, 92, 246, 0.15)")
+    gradient.addColorStop(0.5, "rgba(168, 85, 247, 0.2)")
+    gradient.addColorStop(1, "rgba(192, 132, 252, 0.15)")
     ctx.fillStyle = gradient
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
@@ -36,7 +37,7 @@ export function BioAnimation() {
         this.x = Math.random() * canvas.width
         this.y = Math.random() * canvas.height
         this.radius = Math.random() * 3 + 1
-        this.color = "rgba(34, 197, 94, 0.6)"
+        this.color = "rgba(168, 85, 247, 0.6)"
         this.speedX = Math.random() * 3 - 1.5
         this.speedY = Math.random() * 3 - 1.5
       }
@@ -76,14 +77,21 @@ export function BioAnimation() {
       ]
 
       notePositions.forEach((pos) => {
+        // Glow effect
+        const glowGradient = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, 20)
+        glowGradient.addColorStop(0, "rgba(192, 132, 252, 0.4)")
+        glowGradient.addColorStop(1, "rgba(192, 132, 252, 0)")
+        ctx.fillStyle = glowGradient
+        ctx.fillRect(pos.x - 20, pos.y - 20, 40, 40)
+
         ctx.beginPath()
         ctx.arc(pos.x, pos.y, 10, 0, Math.PI * 2)
-        ctx.fillStyle = "rgba(34, 197, 94, 0.8)"
+        ctx.fillStyle = "rgba(168, 85, 247, 0.9)"
         ctx.fill()
         ctx.beginPath()
         ctx.moveTo(pos.x + 10, pos.y)
         ctx.lineTo(pos.x + 10, pos.y - 50)
-        ctx.strokeStyle = "rgba(34, 197, 94, 0.8)"
+        ctx.strokeStyle = "rgba(168, 85, 247, 0.9)"
         ctx.lineWidth = 2
         ctx.stroke()
       })
@@ -91,8 +99,8 @@ export function BioAnimation() {
 
     function drawMathSymbols() {
       const symbols = ["+", "-", "×", "÷", "=", "∑", "∫", "π"]
-      ctx.font = "24px Arial"
-      ctx.fillStyle = "rgba(34, 197, 94, 0.8)"
+      ctx.font = "bold 24px Arial"
+      ctx.fillStyle = "rgba(168, 85, 247, 0.8)"
 
       symbols.forEach((symbol, index) => {
         const x = (index % 4) * 200 + 100
@@ -124,7 +132,7 @@ export function BioAnimation() {
     <div className="w-full max-w-3xl mx-auto">
       <canvas
         ref={canvasRef}
-        className="w-full h-auto rounded-lg shadow-lg"
+        className="w-full h-auto rounded-2xl shadow-2xl shadow-primary/20"
         aria-label="Animated representation of Sathvik's interests in music and mathematics"
       />
     </div>
