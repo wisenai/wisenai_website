@@ -16,9 +16,9 @@ export function BioAnimation() {
     canvas.height = 400
 
     const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
-    gradient.addColorStop(0, "rgba(167, 90, 255, 0.25)")
-    gradient.addColorStop(0.5, "rgba(198, 102, 255, 0.3)")
-    gradient.addColorStop(1, "rgba(224, 128, 255, 0.25)")
+    gradient.addColorStop(0, "rgba(59, 130, 246, 0.2)")
+    gradient.addColorStop(0.5, "rgba(96, 165, 250, 0.25)")
+    gradient.addColorStop(1, "rgba(147, 197, 253, 0.2)")
     ctx.fillStyle = gradient
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
@@ -37,7 +37,7 @@ export function BioAnimation() {
         this.x = Math.random() * canvas.width
         this.y = Math.random() * canvas.height
         this.radius = Math.random() * 3 + 1
-        this.color = "rgba(198, 102, 255, 0.8)"
+        this.color = "rgba(96, 165, 250, 0.6)"
         this.speedX = Math.random() * 3 - 1.5
         this.speedY = Math.random() * 3 - 1.5
       }
@@ -77,30 +77,29 @@ export function BioAnimation() {
       ]
 
       notePositions.forEach((pos) => {
-        // Vibrant glow effect
-        const glowGradient = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, 25)
-        glowGradient.addColorStop(0, "rgba(224, 128, 255, 0.6)")
-        glowGradient.addColorStop(1, "rgba(224, 128, 255, 0)")
+        const glowGradient = ctx.createRadialGradient(pos.x, pos.y, 0, pos.x, pos.y, 20)
+        glowGradient.addColorStop(0, "rgba(251, 191, 36, 0.5)")
+        glowGradient.addColorStop(1, "rgba(251, 191, 36, 0)")
         ctx.fillStyle = glowGradient
-        ctx.fillRect(pos.x - 25, pos.y - 25, 50, 50)
+        ctx.fillRect(pos.x - 20, pos.y - 20, 40, 40)
 
         ctx.beginPath()
         ctx.arc(pos.x, pos.y, 10, 0, Math.PI * 2)
-        ctx.fillStyle = "rgba(198, 102, 255, 1)"
+        ctx.fillStyle = "rgba(251, 191, 36, 0.9)"
         ctx.fill()
         ctx.beginPath()
         ctx.moveTo(pos.x + 10, pos.y)
         ctx.lineTo(pos.x + 10, pos.y - 50)
-        ctx.strokeStyle = "rgba(198, 102, 255, 1)"
-        ctx.lineWidth = 2.5
+        ctx.strokeStyle = "rgba(251, 191, 36, 0.9)"
+        ctx.lineWidth = 2
         ctx.stroke()
       })
     }
 
     function drawMathSymbols() {
       const symbols = ["+", "-", "×", "÷", "=", "∑", "∫", "π"]
-      ctx.font = "bold 26px Arial"
-      ctx.fillStyle = "rgba(198, 102, 255, 1)"
+      ctx.font = "bold 24px Arial"
+      ctx.fillStyle = "rgba(96, 165, 250, 0.8)"
 
       symbols.forEach((symbol, index) => {
         const x = (index % 4) * 200 + 100
@@ -132,7 +131,7 @@ export function BioAnimation() {
     <div className="w-full max-w-3xl mx-auto">
       <canvas
         ref={canvasRef}
-        className="w-full h-auto rounded-2xl shadow-2xl shadow-primary/30"
+        className="w-full h-auto rounded-xl shadow-2xl shadow-primary/10"
         aria-label="Animated representation of Sathvik's interests in music and mathematics"
       />
     </div>

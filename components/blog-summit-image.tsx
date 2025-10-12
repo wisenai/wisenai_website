@@ -15,11 +15,10 @@ export function BlogSummitImage() {
     canvas.width = 800
     canvas.height = 400
 
-    // Vibrant gradient background
     const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
-    gradient.addColorStop(0, "rgba(167, 90, 255, 0.2)")
-    gradient.addColorStop(0.5, "rgba(198, 102, 255, 0.22)")
-    gradient.addColorStop(1, "rgba(224, 128, 255, 0.2)")
+    gradient.addColorStop(0, "rgba(59, 130, 246, 0.15)")
+    gradient.addColorStop(0.5, "rgba(96, 165, 250, 0.18)")
+    gradient.addColorStop(1, "rgba(147, 197, 253, 0.15)")
     ctx.fillStyle = gradient
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
@@ -31,17 +30,16 @@ export function BlogSummitImage() {
       { x: 500, y: 250, radius: 30 },
     ]
 
-    // Draw connections with vibrant gradient
     ctx.beginPath()
     nodes.forEach((node, i) => {
       nodes.forEach((otherNode, j) => {
         if (i < j) {
           const connectionGradient = ctx.createLinearGradient(node.x, node.y, otherNode.x, otherNode.y)
-          connectionGradient.addColorStop(0, "rgba(167, 90, 255, 0.45)")
-          connectionGradient.addColorStop(0.5, "rgba(224, 128, 255, 0.5)")
-          connectionGradient.addColorStop(1, "rgba(167, 90, 255, 0.45)")
+          connectionGradient.addColorStop(0, "rgba(59, 130, 246, 0.35)")
+          connectionGradient.addColorStop(0.5, "rgba(147, 197, 253, 0.4)")
+          connectionGradient.addColorStop(1, "rgba(59, 130, 246, 0.35)")
           ctx.strokeStyle = connectionGradient
-          ctx.lineWidth = 2.5
+          ctx.lineWidth = 2
           ctx.beginPath()
           ctx.moveTo(node.x, node.y)
           ctx.lineTo(otherNode.x, otherNode.y)
@@ -50,53 +48,50 @@ export function BlogSummitImage() {
       })
     })
 
-    // Draw nodes with vibrant glow
     nodes.forEach((node) => {
-      // Glow effect
-      const glowGradient = ctx.createRadialGradient(node.x, node.y, node.radius * 0.5, node.x, node.y, node.radius * 2)
-      glowGradient.addColorStop(0, "rgba(198, 102, 255, 0.5)")
-      glowGradient.addColorStop(1, "rgba(198, 102, 255, 0)")
+      const glowGradient = ctx.createRadialGradient(
+        node.x,
+        node.y,
+        node.radius * 0.5,
+        node.x,
+        node.y,
+        node.radius * 1.8,
+      )
+      glowGradient.addColorStop(0, "rgba(96, 165, 250, 0.3)")
+      glowGradient.addColorStop(1, "rgba(96, 165, 250, 0)")
       ctx.fillStyle = glowGradient
-      ctx.fillRect(node.x - node.radius * 2, node.y - node.radius * 2, node.radius * 4, node.radius * 4)
+      ctx.fillRect(node.x - node.radius * 1.8, node.y - node.radius * 1.8, node.radius * 3.6, node.radius * 3.6)
 
-      // Outer circle
       ctx.beginPath()
       ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2)
       const outerGradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, node.radius)
-      outerGradient.addColorStop(0, "rgba(224, 128, 255, 0.5)")
-      outerGradient.addColorStop(1, "rgba(167, 90, 255, 0.3)")
+      outerGradient.addColorStop(0, "rgba(147, 197, 253, 0.4)")
+      outerGradient.addColorStop(1, "rgba(59, 130, 246, 0.3)")
       ctx.fillStyle = outerGradient
       ctx.fill()
-      ctx.strokeStyle = "rgba(198, 102, 255, 0.8)"
-      ctx.lineWidth = 2.5
+      ctx.strokeStyle = "rgba(96, 165, 250, 0.6)"
+      ctx.lineWidth = 2
       ctx.stroke()
 
-      // Inner circle
       ctx.beginPath()
       ctx.arc(node.x, node.y, node.radius * 0.6, 0, Math.PI * 2)
-      ctx.fillStyle = "rgba(198, 102, 255, 0.6)"
+      ctx.fillStyle = "rgba(96, 165, 250, 0.5)"
       ctx.fill()
     })
 
-    // Add text with vibrant styling
     const terms = ["Innovation", "Education", "Future", "Technology", "AI"]
-    ctx.font = "bold 18px system-ui"
+    ctx.font = "500 18px system-ui"
     terms.forEach((term, i) => {
       const x = 120 + i * 150
       const y = 360
 
-      // Text shadow
-      ctx.fillStyle = "rgba(167, 90, 255, 0.5)"
-      ctx.fillText(term, x + 2, y + 2)
-
-      // Main text
-      ctx.fillStyle = "rgba(198, 102, 255, 1)"
+      ctx.fillStyle = "rgba(96, 165, 250, 0.8)"
       ctx.fillText(term, x, y)
     })
   }, [])
 
   return (
-    <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl shadow-primary/30">
+    <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl shadow-primary/10">
       <canvas
         ref={canvasRef}
         className="w-full h-full object-cover"
