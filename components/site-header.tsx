@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { Brain, Menu } from "lucide-react"
+import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 
@@ -33,9 +33,12 @@ export function SiteHeader({
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-700 bg-slate-900/95 backdrop-blur supports-[backdrop-filter]:bg-slate-900/60">
       <div className="container flex h-16 items-center">
-        <Button variant="ghost" className="pl-2 pr-4 flex items-center space-x-2 ml-2" onClick={onHomeClick}>
-          <Brain className="h-6 w-6 text-primary" />
-          <span className="text-xl font-bold text-sky-300">WisenAI</span>
+        <Button variant="ghost" className="pl-1 pr-3 flex items-center ml-1 h-auto py-0.5 hover:bg-transparent" onClick={onHomeClick}>
+          <img 
+            src="/wisenai-logo.png" 
+            alt="WisenAI Logo" 
+            className="h-14 w-auto max-w-[180px] object-contain mix-blend-lighten brightness-125"
+          />
         </Button>
         <div className="flex-1" />
         <nav className="hidden md:flex items-center gap-2">

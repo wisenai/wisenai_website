@@ -6,18 +6,21 @@ import { Button } from "@/components/ui/button"
 import { SiteHeader } from "@/components/site-header"
 import { DecorativeImage } from "@/components/decorative-image"
 import { BioAnimation } from "@/components/bio-animation"
-import { Mail, Phone, Calendar } from "lucide-react"
+import { Mail, Phone, Calendar, User, Building2, Home as HomeIcon, Clock, DollarSign, Shield, Brain, Heart, Scale, CheckCircle2, Lightbulb, Users, Target, Award, ChevronDown } from "lucide-react"
 import { useRef, useEffect } from "react"
 import Image from "next/image"
 import { BlogSummitImage } from "@/components/blog-summit-image"
+import { ImpactStats } from "@/components/impact-stats"
+import { Testimonials } from "@/components/testimonials"
+import { TrustBadges } from "@/components/trust-badges"
 
 export default function Home() {
   const topRef = useRef<HTMLDivElement>(null)
   const aboutRef = useRef<HTMLElement>(null)
   const leadershipRef = useRef<HTMLElement>(null)
-  const learnMoreRef = useRef<HTMLElement>(null)
   const contactRef = useRef<HTMLElement>(null)
   const forAICompaniesRef = useRef<HTMLElement>(null)
+  const forSeniorsRef = useRef<HTMLElement>(null)
   const blogRef = useRef<HTMLElement>(null)
 
   // Handle direct URL navigation and back/forward navigation
@@ -25,28 +28,34 @@ export default function Home() {
     const handleHashChange = () => {
       const hash = window.location.hash.replace("#", "")
       if (hash) {
-        const refMap: { [key: string]: React.RefObject<HTMLElement> } = {
+        const refMap: { [key: string]: React.RefObject<HTMLElement | null> } = {
           about: aboutRef,
           blog: blogRef,
           leadership: leadershipRef,
-          "learn-more": learnMoreRef,
+          "learn-more": forSeniorsRef,
           contact: contactRef,
           "for-ai-companies": forAICompaniesRef,
+          "for-seniors": forSeniorsRef,
         }
 
         const ref = refMap[hash]
-        if (ref?.current) {
+        if (ref && ref.current) {
           ref.current.scrollIntoView({ behavior: "smooth" })
         }
       }
     }
 
-    // Handle initial load
-    handleHashChange()
+    // Handle initial load with delay to ensure refs are mounted
+    const timer = setTimeout(handleHashChange, 100)
 
     // Listen for hash changes
     window.addEventListener("hashchange", handleHashChange)
-    return () => window.removeEventListener("hashchange", handleHashChange)
+    
+    // Cleanup on unmount
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener("hashchange", handleHashChange)
+    }
   }, [])
 
   const scrollToSection = (ref: React.RefObject<HTMLElement>, hash: string) => {
@@ -68,114 +77,345 @@ export default function Home() {
         onAboutClick={() => scrollToSection(aboutRef, "about")}
         onLeadershipClick={() => scrollToSection(leadershipRef, "leadership")}
         onBlogClick={() => scrollToSection(blogRef, "blog")}
-        onLearnMoreClick={() => scrollToSection(learnMoreRef, "learn-more")}
+        onLearnMoreClick={() => scrollToSection(forSeniorsRef, "for-seniors")}
         onContactClick={() => scrollToSection(contactRef, "contact")}
         onForAICompaniesClick={() => scrollToSection(forAICompaniesRef, "for-ai-companies")}
       />
       <main className="flex-1">
+        {/* Hero Section */}
         <section className="container mx-auto px-4 py-8 sm:py-12 md:py-16 lg:py-20">
-          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
-            <div className="space-y-6 md:space-y-8">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-sky-300">
-                Bridging Experience of Seniors and AI Innovation
-              </h1>
-              <p className="text-lg sm:text-xl text-slate-300">
-                Join our community of experienced individuals helping to shape the future of artificial intelligence.
-                Your wisdom and expertise are invaluable in training AI models.
+          <div className="text-center max-w-4xl mx-auto mb-12">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-sky-300 opacity-0-initial animate-fade-in-up">
+              We Turn Lifetime Expertise into Better AI
+            </h1>
+            <p className="text-xl sm:text-2xl text-slate-300 mt-6 opacity-0-initial animate-fade-in-up animate-delay-200">
+              Seniors train smarter AI. Companies get better data.
+            </p>
+            <p className="text-lg text-slate-400 mt-4 opacity-0-initial animate-fade-in-up animate-delay-300">
+              Join our community of experienced individuals helping to shape ethical, human-centered artificial intelligence.
+            </p>
+          </div>
+
+          {/* Two-Sided CTA Split */}
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto opacity-0-initial animate-fade-in-up animate-delay-400">
+            {/* For Seniors */}
+            <div className="bg-gradient-to-br from-sky-900/50 to-slate-800 border border-sky-700/50 rounded-2xl p-8">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="p-3 bg-sky-600/20 rounded-xl">
+                  <User className="h-8 w-8 text-sky-400" />
+                </div>
+                <h2 className="text-2xl font-bold text-sky-300">For Seniors</h2>
+              </div>
+              <p className="text-slate-300 mb-6">
+                Share your lifetime of wisdom to help train ethical AI systems.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
-                <a href="https://forms.gle/rAsvHSJAD2fQQrBv6" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="w-full sm:w-auto font-semibold bg-sky-600 hover:bg-sky-700 text-white">
-                    Join Our Program
-                  </Button>
+              
+              {/* How It Works Steps */}
+              <div className="space-y-3 mb-6">
+                <div className="flex items-start gap-3">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-sky-600/30 text-sky-300 text-sm flex items-center justify-center font-semibold">1</span>
+                  <p className="text-slate-400 text-sm">Sign up and tell us about your expertise</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-sky-600/30 text-sky-300 text-sm flex items-center justify-center font-semibold">2</span>
+                  <p className="text-slate-400 text-sm">Review AI responses and share your feedback</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-sky-600/30 text-sky-300 text-sm flex items-center justify-center font-semibold">3</span>
+                  <p className="text-slate-400 text-sm">Get paid for your valuable contributions</p>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-3">
+                <a 
+                  href="https://forms.gle/rAsvHSJAD2fQQrBv6" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center justify-center w-full gap-2 px-6 py-3 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-xl transition-colors"
+                >
+                  Start Contributing Today
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </a>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="w-full sm:w-auto font-semibold border-sky-600 text-sky-300 hover:bg-sky-900 bg-transparent"
-                  onClick={() => scrollToSection(aboutRef, "about")}
+                <button 
+                  onClick={() => scrollToSection(forSeniorsRef, "for-seniors")}
+                  className="text-sky-400 hover:text-sky-300 text-sm font-medium transition-colors"
                 >
-                  About Us
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="w-full sm:w-auto font-semibold border-sky-600 text-sky-300 hover:bg-sky-900 bg-transparent"
-                  onClick={() => scrollToSection(learnMoreRef, "learn-more")}
-                >
-                  Learn More
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="w-full sm:w-auto font-semibold border-sky-600 text-sky-300 hover:bg-sky-900 bg-transparent"
-                  onClick={() => scrollToSection(forAICompaniesRef, "for-ai-companies")}
-                >
-                  For AI Companies
-                </Button>
+                  Learn more about the opportunity →
+                </button>
               </div>
             </div>
-            <div className="lg:order-last">
-              <DecorativeImage />
+
+            {/* For Companies */}
+            <div className="bg-gradient-to-br from-emerald-900/50 to-slate-800 border border-emerald-700/50 rounded-2xl p-8">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="p-3 bg-emerald-600/20 rounded-xl">
+                  <Building2 className="h-8 w-8 text-emerald-400" />
+                </div>
+                <h2 className="text-2xl font-bold text-emerald-300">For AI Companies</h2>
+              </div>
+              <p className="text-slate-300 mb-6">
+                Access premium, ethically-sourced training data from seasoned experts.
+              </p>
+              
+              {/* How It Works Steps */}
+              <div className="space-y-3 mb-6">
+                <div className="flex items-start gap-3">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-600/30 text-emerald-300 text-sm flex items-center justify-center font-semibold">1</span>
+                  <p className="text-slate-400 text-sm">Tell us your data needs and quality standards</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-600/30 text-emerald-300 text-sm flex items-center justify-center font-semibold">2</span>
+                  <p className="text-slate-400 text-sm">We match you with qualified senior experts</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-600/30 text-emerald-300 text-sm flex items-center justify-center font-semibold">3</span>
+                  <p className="text-slate-400 text-sm">Receive quality-reviewed data on schedule</p>
+                </div>
+              </div>
+
+              <button 
+                onClick={() => scrollToSection(forAICompaniesRef, "for-ai-companies")}
+                className="group inline-flex items-center justify-center w-full gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl transition-colors"
+              >
+                Partner With Us
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </button>
+            </div>
+          </div>
+
+          <div className="flex justify-center mt-12 opacity-0-initial animate-fade-in animate-delay-500">
+            <button 
+              onClick={() => scrollToSection(forSeniorsRef, "for-seniors")}
+              className="flex flex-col items-center text-slate-400 hover:text-sky-400 transition-colors"
+            >
+              <span className="text-sm mb-2">Learn more</span>
+              <ChevronDown className="h-5 w-5 animate-bounce" />
+            </button>
+          </div>
+        </section>
+
+        {/* For Seniors Journey Section */}
+        <section ref={forSeniorsRef} className="py-12 sm:py-16 md:py-20 lg:py-24 bg-slate-800">
+          <div className="container px-4 md:px-6">
+            <div className="max-w-4xl mx-auto">
+              {/* What Is This? */}
+              <div className="text-center mb-16">
+                <p className="text-lg font-semibold text-sky-400 mb-2">The Opportunity</p>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-sky-300 mb-6">
+                  What Is This?
+                </h2>
+                <p className="text-lg text-slate-300 max-w-2xl mx-auto mb-4">
+                  AI companies need real people to teach their systems what good, helpful, and accurate responses look like. 
+                  <strong className="text-white"> Your decades of experience make you perfect for this.</strong>
+                </p>
+                <p className="text-slate-400">
+                  Think of it like being a teacher or mentor — but for AI. No technical skills needed.
+                </p>
+              </div>
+
+              {/* What Will I Do? */}
+              <div className="mb-16">
+                <h3 className="text-2xl sm:text-3xl font-bold text-sky-300 text-center mb-8">
+                  What Will I Do?
+                </h3>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="bg-slate-700/50 rounded-xl p-6 border border-slate-600/50">
+                    <h4 className="font-bold text-white mb-2">Compare Responses</h4>
+                    <p className="text-slate-400 text-sm">
+                      Read two AI answers and pick which one is better, more helpful, or more accurate.
+                    </p>
+                  </div>
+                  <div className="bg-slate-700/50 rounded-xl p-6 border border-slate-600/50">
+                    <h4 className="font-bold text-white mb-2">Rate Quality</h4>
+                    <p className="text-slate-400 text-sm">
+                      Give star ratings to AI outputs based on how helpful or accurate they are.
+                    </p>
+                  </div>
+                  <div className="bg-slate-700/50 rounded-xl p-6 border border-slate-600/50">
+                    <h4 className="font-bold text-white mb-2">Share Your Expertise</h4>
+                    <p className="text-slate-400 text-sm">
+                      Explain why a response is good or suggest how it could be improved.
+                    </p>
+                  </div>
+                  <div className="bg-slate-700/50 rounded-xl p-6 border border-slate-600/50">
+                    <h4 className="font-bold text-white mb-2">Flag Problems</h4>
+                    <p className="text-slate-400 text-sm">
+                      Identify when AI responses are inaccurate, inappropriate, or misleading.
+                    </p>
+                  </div>
+                </div>
+                <p className="text-center text-slate-500 text-sm mt-6">
+                  Tasks typically take 5-15 minutes each. Work at your own pace.
+                </p>
+              </div>
+
+              {/* What You'll Get */}
+              <div className="mb-16">
+                <h3 className="text-2xl sm:text-3xl font-bold text-sky-300 text-center mb-8">
+                  What You'll Get
+                </h3>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="text-center p-6 bg-slate-900/50 rounded-xl">
+                    <HomeIcon className="h-8 w-8 text-sky-400 mx-auto mb-3" />
+                    <h4 className="font-bold text-white mb-1">Work From Home</h4>
+                    <p className="text-slate-500 text-sm">No commute, no office</p>
+                  </div>
+                  <div className="text-center p-6 bg-slate-900/50 rounded-xl">
+                    <Clock className="h-8 w-8 text-sky-400 mx-auto mb-3" />
+                    <h4 className="font-bold text-white mb-1">Your Schedule</h4>
+                    <p className="text-slate-500 text-sm">Work when it suits you</p>
+                  </div>
+                  <div className="text-center p-6 bg-slate-900/50 rounded-xl">
+                    <CheckCircle2 className="h-8 w-8 text-sky-400 mx-auto mb-3" />
+                    <h4 className="font-bold text-white mb-1">No Commitments</h4>
+                    <p className="text-slate-500 text-sm">No minimums required</p>
+                  </div>
+                  <div className="text-center p-6 bg-slate-900/50 rounded-xl">
+                    <DollarSign className="h-8 w-8 text-sky-400 mx-auto mb-3" />
+                    <h4 className="font-bold text-white mb-1">$15-25/hr</h4>
+                    <p className="text-slate-500 text-sm">Fair compensation</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Who Can Join? */}
+              <div className="mb-16">
+                <h3 className="text-2xl sm:text-3xl font-bold text-sky-300 text-center mb-8">
+                  Who Can Join?
+                </h3>
+                <div className="bg-slate-900/50 rounded-2xl p-8 max-w-xl mx-auto">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <CheckCircle2 className="h-6 w-6 text-sky-400 flex-shrink-0" />
+                      <span className="text-white">Age 55 or older</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle2 className="h-6 w-6 text-sky-400 flex-shrink-0" />
+                      <span className="text-white">15+ years of professional experience</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle2 className="h-6 w-6 text-sky-400 flex-shrink-0" />
+                      <span className="text-white">OR retired from any profession</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle2 className="h-6 w-6 text-sky-400 flex-shrink-0" />
+                      <span className="text-white">Computer/tablet with internet access</span>
+                    </div>
+                  </div>
+                  <p className="text-slate-400 text-sm mt-6 text-center">
+                    No technical skills needed. If you can send an email, you can do this.
+                  </p>
+                </div>
+              </div>
+
+              {/* Ready to Start? */}
+              <div className="text-center">
+                <h3 className="text-2xl sm:text-3xl font-bold text-sky-300 mb-4">
+                  Ready to Start?
+                </h3>
+                <p className="text-slate-300 mb-8 max-w-lg mx-auto">
+                  Join hundreds of seniors who are already contributing their wisdom and earning from home.
+                </p>
+                <a 
+                  href="https://forms.gle/rAsvHSJAD2fQQrBv6" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-sky-600 hover:bg-sky-700 text-white font-bold text-lg rounded-xl transition-colors"
+                >
+                  Apply Now — It's Free
+                  <span>→</span>
+                </a>
+                <p className="text-slate-500 text-sm mt-4">
+                  Takes 5 minutes. No obligation.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
+        {/* Why Join WisenAI - Combined Section */}
         <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-slate-800">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              <div className="space-y-4">
-                <h3 className="text-xl sm:text-2xl font-bold">Share Your Experience</h3>
-                <p className="text-slate-300">
-                  Your lifetime of experience and knowledge is invaluable in training AI systems to better understand
-                  human context and wisdom.
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-sky-300 mb-4">
+                Why Your Experience Matters
+              </h2>
+              <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+                Your decades of wisdom bring irreplaceable value to AI training. No technical skills required.
+              </p>
+            </div>
+
+            {/* What You Bring */}
+            <div className="grid gap-6 md:grid-cols-3 mb-16">
+              <div className="bg-slate-700/50 rounded-xl p-6 border border-slate-600/50">
+                <div className="p-3 bg-sky-600/20 rounded-xl w-fit mb-4">
+                  <Lightbulb className="h-7 w-7 text-sky-400" />
+                </div>
+                <h3 className="text-lg font-bold mb-2 text-sky-300">Context Awareness</h3>
+                <p className="text-slate-400 text-sm">
+                  Your life experience helps AI understand nuance that younger trainers miss.
                 </p>
               </div>
-              <div className="space-y-4">
-                <h3 className="text-xl sm:text-2xl font-bold">Flexible Schedule</h3>
-                <p className="text-slate-300">
-                  Work at your own pace from the comfort of your home. Choose hours that suit your lifestyle.
+              <div className="bg-slate-700/50 rounded-xl p-6 border border-slate-600/50">
+                <div className="p-3 bg-sky-600/20 rounded-xl w-fit mb-4">
+                  <Brain className="h-7 w-7 text-sky-400" />
+                </div>
+                <h3 className="text-lg font-bold mb-2 text-sky-300">Nuanced Judgment</h3>
+                <p className="text-slate-400 text-sm">
+                  Decades of experience mean you spot subtle differences in meaning and tone.
                 </p>
               </div>
-              <div className="space-y-4">
-                <h3 className="text-xl sm:text-2xl font-bold">Fair Compensation</h3>
-                <p className="text-slate-300">
-                  Receive competitive compensation for your contributions to AI development and training.
+              <div className="bg-slate-700/50 rounded-xl p-6 border border-slate-600/50">
+                <div className="p-3 bg-sky-600/20 rounded-xl w-fit mb-4">
+                  <Scale className="h-7 w-7 text-sky-400" />
+                </div>
+                <h3 className="text-lg font-bold mb-2 text-sky-300">Ethical Perspective</h3>
+                <p className="text-slate-400 text-sm">
+                  Your diverse viewpoints help create more balanced, fair AI systems.
                 </p>
+              </div>
+            </div>
+
+            {/* What You Get */}
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-4xl mx-auto">
+              <div className="flex items-center gap-3 p-4 bg-slate-900/50 rounded-xl">
+                <HomeIcon className="h-6 w-6 text-sky-400 flex-shrink-0" />
+                <span className="text-slate-300">Work from home</span>
+              </div>
+              <div className="flex items-center gap-3 p-4 bg-slate-900/50 rounded-xl">
+                <Clock className="h-6 w-6 text-sky-400 flex-shrink-0" />
+                <span className="text-slate-300">Choose your hours</span>
+              </div>
+              <div className="flex items-center gap-3 p-4 bg-slate-900/50 rounded-xl">
+                <CheckCircle2 className="h-6 w-6 text-sky-400 flex-shrink-0" />
+                <span className="text-slate-300">No commitments</span>
+              </div>
+              <div className="flex items-center gap-3 p-4 bg-slate-900/50 rounded-xl">
+                <DollarSign className="h-6 w-6 text-sky-400 flex-shrink-0" />
+                <span className="text-slate-300">Fair compensation</span>
               </div>
             </div>
           </div>
         </section>
+
+        {/* Impact Stats Section */}
+        <ImpactStats />
+
+        {/* Testimonials Section */}
+        <Testimonials />
 
         <section ref={aboutRef} className="py-12 sm:py-16 md:py-20 lg:py-24">
           <div className="container px-4 md:px-6">
-            <div className="mx-auto max-w-3xl space-y-6 sm:space-y-8">
-              <div className="space-y-4">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-sky-300">
-                  About WisenAI
-                </h2>
-                <p className="text-base sm:text-lg md:text-xl text-slate-300">
-                  WisenAI bridges the gap between senior experience and artificial intelligence innovation. We believe
-                  that the wisdom accumulated over decades of life experience is invaluable in training AI systems to be
-                  more human-centered and ethical.
-                </p>
-              </div>
-              <div className="space-y-6 sm:space-y-8">
-                <h3 className="text-xl sm:text-2xl font-bold">Our Mission</h3>
-                <p className="text-slate-300">
-                  We are committed to creating meaningful opportunities for seniors to contribute their knowledge and
-                  experience to the development of artificial intelligence, while ensuring fair compensation and
-                  flexible working conditions.
-                </p>
-                <h3 className="text-xl sm:text-2xl font-bold">Why Join Us?</h3>
-                <ul className="list-disc space-y-2 sm:space-y-4 pl-6 text-slate-300">
-                  <li>Share your valuable life experience and wisdom</li>
-                  <li>Work flexibly from home on your own schedule</li>
-                  <li>Receive fair compensation for your contributions</li>
-                  <li>Be part of shaping the future of AI technology</li>
-                  <li>Join a supportive community of like-minded individuals</li>
-                </ul>
-              </div>
+            <div className="mx-auto max-w-3xl text-center">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-sky-300 mb-6">
+                About WisenAI
+              </h2>
+              <p className="text-lg md:text-xl text-slate-300 mb-4">
+                We bridge the gap between senior experience and AI innovation. The wisdom accumulated over decades of life is invaluable in training AI systems to be more human-centered and ethical.
+              </p>
+              <p className="text-slate-400">
+                Our mission: create meaningful opportunities for seniors to contribute their knowledge while ensuring fair compensation and flexible working conditions.
+              </p>
             </div>
           </div>
         </section>
@@ -305,152 +545,49 @@ export default function Home() {
           </div>
         </section>
 
-        <section ref={learnMoreRef} className="py-12 sm:py-16 md:py-20 lg:py-24">
-          <div className="container px-4 md:px-6">
-            <div className="mx-auto max-w-3xl space-y-6 sm:space-y-8">
-              <div className="space-y-4">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-sky-300">
-                  How AI Learns from Human Wisdom
-                </h2>
-                <p className="text-base sm:text-lg md:text-xl text-slate-300">
-                  At WisenAI, we're bridging the gap between senior experience and artificial intelligence. Your
-                  lifetime of knowledge is the key to making AI more human-centered and ethical.
-                </p>
-              </div>
-
-              <div className="space-y-6 sm:space-y-8">
-                <h3 className="text-2xl sm:text-3xl font-bold text-sky-300">Teaching AI to Be More Human</h3>
-                <p className="text-slate-300">
-                  Imagine you're teaching your grandchild about life. You share stories, give advice, and help them
-                  understand right from wrong. That's similar to how we train AI, but on a much larger scale.
-                </p>
-                <p className="text-slate-300">
-                  AI starts off like a very smart calculator - it can process lots of information quickly, but it
-                  doesn't truly understand the world like we do. That's where you come in.
-                </p>
-              </div>
-
-              <div className="space-y-6 sm:space-y-8">
-                <h3 className="text-2xl sm:text-3xl font-bold text-sky-300">
-                  Your Experience Shapes AI's Understanding
-                </h3>
-                <p className="text-slate-300">
-                  We use a method called "Reinforcement Learning from Human Feedback" or RLHF. Don't worry about the
-                  fancy name - here's how it works:
-                </p>
-                <ol className="list-decimal space-y-4 pl-6 text-slate-300">
-                  <li>The AI tries to complete a task, like writing a story or answering a question.</li>
-                  <li>People like you read what the AI wrote and say if it's good or needs improvement.</li>
-                  <li>The AI learns from your feedback and tries again, getting better each time.</li>
-                </ol>
-                <p className="text-slate-300">
-                  It's like teaching a child to ride a bike. You give encouragement when they do well and gently correct
-                  them when they make mistakes. Over time, they improve and learn to ride smoothly.
-                </p>
-              </div>
-
-              <div className="space-y-6 sm:space-y-8">
-                <h3 className="text-2xl sm:text-3xl font-bold text-sky-300">Why Your Wisdom Matters</h3>
-                <p className="text-slate-300">
-                  You've lived through decades of changes, faced countless challenges, and gathered wisdom that can't be
-                  found in books. This makes your input incredibly valuable:
-                </p>
-                <ul className="list-disc space-y-4 pl-6 text-slate-300">
-                  <li>Your life experiences help AI understand complex human situations</li>
-                  <li>Your moral compass guides AI to make ethical decisions</li>
-                  <li>Your cultural knowledge helps AI respect and understand diverse perspectives</li>
-                  <li>Your practical wisdom teaches AI common sense that younger generations might overlook</li>
-                </ul>
-              </div>
-
-              <div className="space-y-6 sm:space-y-8">
-                <h3 className="text-2xl sm:text-3xl font-bold text-sky-300">Join Us in Shaping the Future</h3>
-                <p className="text-slate-300">
-                  By sharing your knowledge, you're not just helping a machine learn - you're passing on your wisdom to
-                  future generations. You're ensuring that the AI systems of tomorrow are guided by the hard-earned
-                  wisdom of today.
-                </p>
-                <p className="text-slate-300">
-                  It's a chance to make a lasting impact, to ensure that the values and insights you hold dear continue
-                  to influence the world long into the future.
-                </p>
-                <div className="pt-4">
-                  <a href="https://forms.gle/rAsvHSJAD2fQQrBv6" target="_blank" rel="noopener noreferrer">
-                    <Button size="lg" className="w-full sm:w-auto bg-sky-600 hover:bg-sky-700 text-white">
-                      Contribute Your Wisdom
-                    </Button>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
+        {/* For AI Companies - Consolidated Section */}
         <section ref={forAICompaniesRef} className="py-12 sm:py-16 md:py-20 lg:py-24 bg-slate-800">
           <div className="container px-4 md:px-6">
-            <div className="mx-auto max-w-3xl text-center">
-              <div className="space-y-2 mb-6">
-                <p className="text-lg font-semibold text-sky-400">For LLM Providers</p>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-sky-300">Wisen your AI</h2>
-              </div>
-              <p className="text-xl text-slate-300 mb-8">
+            <div className="mx-auto max-w-3xl text-center mb-12">
+              <p className="text-lg font-semibold text-emerald-400 mb-2">For AI Companies</p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-emerald-300 mb-4">Wisen Your AI</h2>
+              <p className="text-xl text-slate-300">
                 Elevate your AI models with ethically sourced, high-quality data from seasoned experts.
               </p>
             </div>
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              <div className="bg-slate-700 p-6 rounded-lg">
-                <h3 className="text-xl font-bold mb-4">Ethical Sourcing</h3>
-                <p className="text-slate-300">
-                  Rest assured that all data and expertise are ethically sourced from well-compensated senior experts.
-                </p>
-              </div>
-              <div className="bg-slate-700 p-6 rounded-lg">
-                <h3 className="text-xl font-bold mb-4">Unparalleled Expertise</h3>
-                <p className="text-slate-300">
-                  Tap into years of real-world experience that's hard to find elsewhere in the AI training landscape.
-                </p>
-              </div>
-              <div className="bg-slate-700 p-6 rounded-lg">
-                <h3 className="text-xl font-bold mb-4">Social Responsibility</h3>
-                <p className="text-slate-300">
-                  Support a platform that honors seniors and older adults by providing meaningful work and dignity.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        <section className="py-12 sm:py-16 md:py-20 lg:py-24">
-          <div className="container px-4 md:px-6">
-            <div className="mx-auto max-w-3xl text-center mb-12">
-              <div className="space-y-2 mb-6">
-                <p className="text-lg font-semibold text-sky-400">For LLM Providers</p>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-sky-300">Technical Advantages</h2>
-              </div>
-              <p className="text-xl text-slate-300">
-                Streamline your AI development process with our high-quality, expertly curated data.
-              </p>
-            </div>
-            <div className="grid gap-8 md:grid-cols-2">
-              <div className="bg-slate-700 p-6 rounded-lg">
-                <h3 className="text-xl font-bold mb-4">Premium Training Data</h3>
-                <p className="text-slate-300">
-                  Access top-tier data for RLHF, SFT, DPO, or Reinforcement Fine Tuning. Our data is meticulously
-                  curated by experts with decades of real-world experience.
+            {/* Benefits Grid */}
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-12">
+              <div className="bg-slate-700/50 p-6 rounded-xl border border-slate-600/50">
+                <h3 className="text-lg font-bold mb-2 text-emerald-300">Ethical Sourcing</h3>
+                <p className="text-slate-400 text-sm">
+                  All data ethically sourced from well-compensated senior experts.
                 </p>
               </div>
-              <div className="bg-slate-700 p-6 rounded-lg">
-                <h3 className="text-xl font-bold mb-4">Accelerated Development</h3>
-                <p className="text-slate-300">
-                  Significantly reduce the time and resources spent on sourcing and producing high-quality training
-                  data. With WisenAI, focus on what truly matters - building exceptional AI models.
+              <div className="bg-slate-700/50 p-6 rounded-xl border border-slate-600/50">
+                <h3 className="text-lg font-bold mb-2 text-emerald-300">Deep Expertise</h3>
+                <p className="text-slate-400 text-sm">
+                  Decades of real-world experience you won't find elsewhere.
+                </p>
+              </div>
+              <div className="bg-slate-700/50 p-6 rounded-xl border border-slate-600/50">
+                <h3 className="text-lg font-bold mb-2 text-emerald-300">Premium Data</h3>
+                <p className="text-slate-400 text-sm">
+                  Top-tier data for RLHF, SFT, DPO, and fine-tuning.
+                </p>
+              </div>
+              <div className="bg-slate-700/50 p-6 rounded-xl border border-slate-600/50">
+                <h3 className="text-lg font-bold mb-2 text-emerald-300">Fast Delivery</h3>
+                <p className="text-slate-400 text-sm">
+                  Reduce time sourcing data. Focus on building models.
                 </p>
               </div>
             </div>
-            <div className="text-center mt-12">
+
+            <div className="text-center">
               <Button
                 size="lg"
-                className="font-semibold bg-sky-600 hover:bg-sky-700 text-white"
+                className="font-semibold bg-emerald-600 hover:bg-emerald-700 text-white"
                 onClick={() => scrollToSection(contactRef, "contact")}
               >
                 Partner with Us
@@ -459,7 +596,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section ref={contactRef} className="py-12 sm:py-16 md:py-20 lg:py-24 bg-slate-800">
+        {/* Trust Badges Section */}
+        <TrustBadges />
+
+
+        <section ref={contactRef} id="contact" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-slate-800">
           <div className="container px-4 md:px-6">
             <div className="mx-auto max-w-3xl space-y-8 sm:space-y-12">
               <div className="space-y-4">
