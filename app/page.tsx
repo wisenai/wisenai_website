@@ -622,7 +622,7 @@ export default function Home() {
                   <div className="flex items-center space-x-2">
                     <Phone className="h-5 w-5 text-primary" />
                     <a href="tel:9089877117" className="text-primary hover:underline">
-                      (908) 987-7117
+                      (908) 955-3139
                     </a>
                   </div>
                 </div>

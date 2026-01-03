@@ -48,7 +48,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the site locally.
 ## Contact
 
 - **Email**: sathvik@wisenai.com
-- **Phone**: (908) 987-7117
+- **Phone**: (908) 955-3139
 
 ## License
 
