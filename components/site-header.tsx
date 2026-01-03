@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
 
 interface SiteHeaderProps {
   onHomeClick: () => void
@@ -90,16 +91,42 @@ export function SiteHeader({
           >
             Contact Us
           </Button>
-          <Button variant="ghost" size="sm" asChild>
-            <a
-              href="/apply"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium transition-colors hover:text-sky-300"
-            >
-              Sign Up
-            </a>
-          </Button>
+          <SignedOut>
+            <Button variant="ghost" size="sm" asChild>
+              <Link
+                href="/apply"
+                className="text-sm font-medium transition-colors hover:text-sky-300"
+              >
+                Apply
+              </Link>
+            </Button>
+            <Button variant="ghost" size="sm" asChild>
+              <Link
+                href="/sign-in"
+                className="text-sm font-medium transition-colors hover:text-sky-300"
+              >
+                Sign In
+              </Link>
+            </Button>
+          </SignedOut>
+          <SignedIn>
+            <Button variant="ghost" size="sm" asChild>
+              <Link
+                href="/dashboard"
+                className="text-sm font-medium transition-colors hover:text-sky-300"
+              >
+                Dashboard
+              </Link>
+            </Button>
+            <UserButton 
+              afterSignOutUrl="/"
+              appearance={{
+                elements: {
+                  avatarBox: "w-8 h-8",
+                },
+              }}
+            />
+          </SignedIn>
           <Button
             variant="outline"
             size="sm"
@@ -164,11 +191,35 @@ export function SiteHeader({
           >
             Contact Us
           </Button>
-          <Button variant="ghost" size="sm" asChild className="w-full justify-start">
-            <a href="/apply" target="_blank" rel="noopener noreferrer">
-              Sign Up
-            </a>
-          </Button>
+          <SignedOut>
+            <Button variant="ghost" size="sm" asChild className="w-full justify-start">
+              <Link href="/apply">
+                Apply
+              </Link>
+            </Button>
+            <Button variant="ghost" size="sm" asChild className="w-full justify-start">
+              <Link href="/sign-in">
+                Sign In
+              </Link>
+            </Button>
+          </SignedOut>
+          <SignedIn>
+            <Button variant="ghost" size="sm" asChild className="w-full justify-start">
+              <Link href="/dashboard">
+                Dashboard
+              </Link>
+            </Button>
+            <div className="px-3 py-2">
+              <UserButton 
+                afterSignOutUrl="/"
+                appearance={{
+                  elements: {
+                    avatarBox: "w-8 h-8",
+                  },
+                }}
+              />
+            </div>
+          </SignedIn>
           <Button
             variant="outline"
             size="sm"
