@@ -39,7 +39,7 @@ export function TrustBadges() {
         </div>
 
         {/* Security Badges Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto mb-16">
+        <div className="grid gap-6 sm:grid-cols-2 max-w-2xl mx-auto mb-16">
           {securityFeatures.map((feature) => {
             const Icon = feature.icon
             return (
