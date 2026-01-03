@@ -1,9 +1,9 @@
 "use client"
 import Link from "next/link"
-import { Menu } from "lucide-react"
+import { Menu, Shield } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs"
+import { useState, useEffect } from "react"
+import { SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs"
 
 interface SiteHeaderProps {
   onHomeClick: () => void
@@ -25,6 +25,20 @@ export function SiteHeader({
   onBlogClick,
 }: SiteHeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
+  const { isSignedIn } = useUser()
+
+  // Check if user is admin
+  useEffect(() => {
+    if (isSignedIn) {
+      fetch('/api/admin/check')
+        .then(res => res.json())
+        .then(data => setIsAdmin(data.isAdmin))
+        .catch(() => setIsAdmin(false))
+    } else {
+      setIsAdmin(false)
+    }
+  }, [isSignedIn])
 
   const handleNavigation = (handler: () => void) => {
     setIsMenuOpen(false)
@@ -118,6 +132,17 @@ export function SiteHeader({
                 Dashboard
               </Link>
             </Button>
+            {isAdmin && (
+              <Button variant="ghost" size="sm" asChild>
+                <Link
+                  href="/admin/dashboard"
+                  className="text-sm font-medium transition-colors hover:text-amber-300 flex items-center gap-1"
+                >
+                  <Shield className="w-3 h-3" />
+                  Admin
+                </Link>
+              </Button>
+            )}
             <UserButton 
               afterSignOutUrl="/"
               appearance={{
@@ -209,6 +234,14 @@ export function SiteHeader({
                 Dashboard
               </Link>
             </Button>
+            {isAdmin && (
+              <Button variant="ghost" size="sm" asChild className="w-full justify-start">
+                <Link href="/admin/dashboard" className="flex items-center gap-2">
+                  <Shield className="w-4 h-4 text-amber-400" />
+                  Admin
+                </Link>
+              </Button>
+            )}
             <div className="px-3 py-2">
               <UserButton 
                 afterSignOutUrl="/"

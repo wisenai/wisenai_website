@@ -8,7 +8,8 @@ export function getAdminEmails(): string[] {
   if (envEmails) {
     return envEmails.split(',').map(email => email.trim().toLowerCase())
   }
-  return DEFAULT_ADMIN_EMAILS
+  // Always return lowercase emails
+  return DEFAULT_ADMIN_EMAILS.map(email => email.toLowerCase())
 }
 
 export function isAdminEmail(email: string): boolean {
