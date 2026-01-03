@@ -108,7 +108,7 @@ export function Eligibility() {
               </div>
 
               <a
-                href="https://forms.gle/rAsvHSJAD2fQQrBv6"
+                href="/apply"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-xl transition-colors"

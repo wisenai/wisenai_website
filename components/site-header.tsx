@@ -92,7 +92,7 @@ export function SiteHeader({
           </Button>
           <Button variant="ghost" size="sm" asChild>
             <a
-              href="https://forms.gle/rAsvHSJAD2fQQrBv6"
+              href="/apply"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-medium transition-colors hover:text-sky-300"
@@ -165,7 +165,7 @@ export function SiteHeader({
             Contact Us
           </Button>
           <Button variant="ghost" size="sm" asChild className="w-full justify-start">
-            <a href="https://forms.gle/rAsvHSJAD2fQQrBv6" target="_blank" rel="noopener noreferrer">
+            <a href="/apply" target="_blank" rel="noopener noreferrer">
               Sign Up
             </a>
           </Button>

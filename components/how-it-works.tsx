@@ -156,7 +156,7 @@ export function HowItWorks() {
         <div className="text-center mt-12">
           {activeTab === 'seniors' ? (
             <a
-              href="https://forms.gle/rAsvHSJAD2fQQrBv6"
+              href="/apply"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-xl transition-colors"

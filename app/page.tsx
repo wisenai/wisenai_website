@@ -128,9 +128,7 @@ export default function Home() {
 
               <div className="flex flex-col gap-3">
                 <a 
-                  href="https://forms.gle/rAsvHSJAD2fQQrBv6" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                  href="/apply" 
                   className="group inline-flex items-center justify-center w-full gap-2 px-6 py-3 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-xl transition-colors"
                 >
                   Start Contributing Today
@@ -317,9 +315,7 @@ export default function Home() {
                   Join hundreds of seniors who are already contributing their wisdom and earning from home.
                 </p>
                 <a 
-                  href="https://forms.gle/rAsvHSJAD2fQQrBv6" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                  href="/apply" 
                   className="inline-flex items-center gap-2 px-8 py-4 bg-sky-600 hover:bg-sky-700 text-white font-bold text-lg rounded-xl transition-colors"
                 >
                   Apply Now — It's Free
@@ -678,7 +674,7 @@ export default function Home() {
                   Ready to contribute your experience to AI innovation? Join our program and be part of shaping the
                   future of technology.
                 </p>
-                <a href="https://forms.gle/rAsvHSJAD2fQQrBv6" target="_blank" rel="noopener noreferrer">
+                <a href="/apply">
                   <Button size="lg" className="mt-4 w-full sm:w-auto bg-sky-600 hover:bg-sky-700 text-white">
                     Join Us
                   </Button>
