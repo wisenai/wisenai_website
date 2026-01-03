@@ -466,24 +466,38 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 text-sky-300">Blog</h2>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              <article className="bg-slate-800 rounded-lg overflow-hidden shadow-lg">
-                <div className="relative aspect-video">
-                  <Image
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/StudentAISummit.jpg-dyflI3uG0h6HePcAItNYhgcNdSUlNQ.webp"
-                    alt="Newark Academy students at the AI Summit standing in front of The David Teeger Studio Arts wall"
-                    layout="fill"
-                    objectFit="cover"
-                    className="object-center"
-                  />
-                </div>
+              <article className="bg-slate-800 rounded-lg overflow-hidden shadow-lg group">
+                <a
+                  href="https://www.newarka.edu/life-at-na/news/default-board-post-page/~board/school-news/post/newark-academy-students-lead-first-ever-student-artificial-intelligence-summit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <div className="relative aspect-video overflow-hidden">
+                    <Image
+                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/StudentAISummit.jpg-dyflI3uG0h6HePcAItNYhgcNdSUlNQ.webp"
+                      alt="Newark Academy students at the AI Summit standing in front of The David Teeger Studio Arts wall"
+                      layout="fill"
+                      objectFit="cover"
+                      className="object-center group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                </a>
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-4">
                     <Calendar className="h-4 w-4 text-sky-400" />
                     <time className="text-sm text-slate-400">January 17, 2025</time>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-sky-300">
-                    Newark Academy Students Lead First-Ever Student Artificial Intelligence Summit
-                  </h3>
+                  <a
+                    href="https://www.newarka.edu/life-at-na/news/default-board-post-page/~board/school-news/post/newark-academy-students-lead-first-ever-student-artificial-intelligence-summit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <h3 className="text-xl font-bold mb-2 text-sky-300 hover:text-sky-200 transition-colors">
+                      Newark Academy Students Lead First-Ever Student Artificial Intelligence Summit
+                    </h3>
+                  </a>
                   <p className="text-slate-300 mb-4">
                     Students at Newark Academy organized and led a groundbreaking AI Summit, demonstrating leadership in
                     addressing the impact of artificial intelligence in education.
@@ -500,18 +514,34 @@ export default function Home() {
                 </div>
               </article>
 
-              <article className="bg-slate-800 rounded-lg overflow-hidden shadow-lg">
-                <div className="relative aspect-video">
-                  <BlogSummitImage />
-                </div>
+              <article className="bg-slate-800 rounded-lg overflow-hidden shadow-lg group">
+                <a
+                  href="https://www.tapinto.net/towns/millburn-slash-short-hills/sections/education/articles/3-short-hills-residents-present-at-student-artificial-intelligence-summit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <div className="relative aspect-video overflow-hidden">
+                    <div className="group-hover:scale-105 transition-transform duration-300 h-full">
+                      <BlogSummitImage />
+                    </div>
+                  </div>
+                </a>
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-4">
                     <Calendar className="h-4 w-4 text-sky-400" />
                     <time className="text-sm text-slate-400">January 19, 2025</time>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-sky-300">
-                    Three Short Hills Residents Present at Student Artificial Intelligence Summit
-                  </h3>
+                  <a
+                    href="https://www.tapinto.net/towns/millburn-slash-short-hills/sections/education/articles/3-short-hills-residents-present-at-student-artificial-intelligence-summit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <h3 className="text-xl font-bold mb-2 text-sky-300 hover:text-sky-200 transition-colors">
+                      Three Short Hills Residents Present at Student Artificial Intelligence Summit
+                    </h3>
+                  </a>
                   <p className="text-slate-300 mb-4">
                     Local students showcase leadership and innovation in artificial intelligence at a groundbreaking
                     summit, discussing the future of AI in education.
@@ -544,9 +574,11 @@ export default function Home() {
                     <Calendar className="h-4 w-4 text-sky-400" />
                     <time className="text-sm text-slate-400">March 13, 2025</time>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-sky-300">
-                    WisenAI Explained
-                  </h3>
+                  <a href="#for-seniors" className="block">
+                    <h3 className="text-xl font-bold mb-2 text-sky-300 hover:text-sky-200 transition-colors">
+                      WisenAI Explained
+                    </h3>
+                  </a>
                   <p className="text-slate-300 mb-4">
                     Watch the short video to understand more about the purpose of WisenAI and what we do.
                   </p>
@@ -557,21 +589,25 @@ export default function Home() {
               </article>
 
               {/* Policy Paper Blog Post */}
-              <article className="bg-slate-800 rounded-lg overflow-hidden shadow-lg">
-                <div className="relative aspect-video bg-gradient-to-br from-sky-900 via-slate-800 to-indigo-900 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <FileText className="h-16 w-16 text-sky-400 mx-auto mb-3" />
-                    <p className="text-sky-300 font-semibold">Policy Paper</p>
+              <article className="bg-slate-800 rounded-lg overflow-hidden shadow-lg group">
+                <a href="/blog/ai-job-displacement-policy" className="block">
+                  <div className="relative aspect-video bg-gradient-to-br from-sky-900 via-slate-800 to-indigo-900 flex items-center justify-center group-hover:from-sky-800 group-hover:to-indigo-800 transition-colors duration-300">
+                    <div className="text-center p-6">
+                      <FileText className="h-16 w-16 text-sky-400 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+                      <p className="text-sky-300 font-semibold">Policy Paper</p>
+                    </div>
                   </div>
-                </div>
+                </a>
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-4">
                     <Calendar className="h-4 w-4 text-sky-400" />
                     <time className="text-sm text-slate-400">May 10, 2025</time>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-sky-300">
-                    AI & Job Displacement: Actions the U.S. Can Take
-                  </h3>
+                  <a href="/blog/ai-job-displacement-policy" className="block">
+                    <h3 className="text-xl font-bold mb-2 text-sky-300 hover:text-sky-200 transition-colors">
+                      AI & Job Displacement: Actions the U.S. Can Take
+                    </h3>
+                  </a>
                   <p className="text-slate-300 mb-4">
                     A policy paper exploring how the U.S. government should respond to AI-driven automation, with recommendations for workforce retraining, regulation, and social safety nets.
                   </p>
