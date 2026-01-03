@@ -532,15 +532,33 @@ export default function Home() {
                 </div>
               </article>
 
-              {/* Placeholder for future blog post */}
-              <div className="bg-slate-800 rounded-lg overflow-hidden shadow-lg opacity-50">
-                <div className="aspect-video bg-slate-700" />
-                <div className="p-6">
-                  <div className="h-4 w-24 bg-slate-700 rounded mb-4" />
-                  <div className="h-8 w-full bg-slate-700 rounded mb-2" />
-                  <div className="h-20 w-full bg-slate-700 rounded" />
+              <article className="bg-slate-800 rounded-lg overflow-hidden shadow-lg">
+                <div className="relative aspect-video">
+                  <iframe
+                    src="https://player.vimeo.com/video/1151127223?badge=0&autopause=0&player_id=0&app_id=58479"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    className="absolute top-0 left-0 w-full h-full"
+                    title="WisenAI Explained"
+                  />
                 </div>
-              </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Calendar className="h-4 w-4 text-sky-400" />
+                    <time className="text-sm text-slate-400">March 13, 2025</time>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-sky-300">
+                    WisenAI Explained
+                  </h3>
+                  <p className="text-slate-300 mb-4">
+                    Watch the short video to understand more about the purpose of WisenAI and what we do.
+                  </p>
+                  <Button variant="link" className="text-sky-400 hover:text-sky-300 p-0">
+                    <a href="#for-seniors">How It Works →</a>
+                  </Button>
+                </div>
+              </article>
             </div>
           </div>
         </section>
