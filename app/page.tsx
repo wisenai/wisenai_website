@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { SiteHeader } from "@/components/site-header"
 import { DecorativeImage } from "@/components/decorative-image"
 import { BioAnimation } from "@/components/bio-animation"
-import { Mail, Phone, Calendar, User, Building2, Home as HomeIcon, Clock, DollarSign, Shield, Brain, Heart, Scale, CheckCircle2, Lightbulb, Users, Target, Award, ChevronDown } from "lucide-react"
+import { Mail, Phone, Calendar, User, Building2, Home as HomeIcon, Clock, DollarSign, Shield, Brain, Heart, Scale, CheckCircle2, Lightbulb, Users, Target, Award, ChevronDown, FileText } from "lucide-react"
 import { useRef, useEffect } from "react"
 import Image from "next/image"
 import { BlogSummitImage } from "@/components/blog-summit-image"
@@ -556,6 +556,33 @@ export default function Home() {
                   </p>
                   <Button variant="link" className="text-sky-400 hover:text-sky-300 p-0">
                     <a href="#for-seniors">How It Works →</a>
+                  </Button>
+                </div>
+              </article>
+
+              {/* Policy Paper Blog Post */}
+              <article className="bg-slate-800 rounded-lg overflow-hidden shadow-lg">
+                <div className="relative aspect-video bg-gradient-to-br from-sky-900 via-slate-800 to-indigo-900 flex items-center justify-center">
+                  <div className="text-center p-6">
+                    <FileText className="h-16 w-16 text-sky-400 mx-auto mb-3" />
+                    <p className="text-sky-300 font-semibold">Policy Paper</p>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Calendar className="h-4 w-4 text-sky-400" />
+                    <time className="text-sm text-slate-400">May 10, 2025</time>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 text-sky-300">
+                    AI & Job Displacement: Actions the U.S. Can Take
+                  </h3>
+                  <p className="text-slate-300 mb-4">
+                    A policy paper exploring how the U.S. government should respond to AI-driven automation, with recommendations for workforce retraining, regulation, and social safety nets.
+                  </p>
+                  <Button variant="link" className="text-sky-400 hover:text-sky-300 p-0" asChild>
+                    <a href="/blog/ai-job-displacement-policy">
+                      Read Article →
+                    </a>
                   </Button>
                 </div>
               </article>
