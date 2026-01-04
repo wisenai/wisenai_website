@@ -1,10 +1,14 @@
-import { Inter } from "next/font/google"
+import { Inter, Playfair_Display } from "next/font/google"
 import { ClerkProvider } from "@clerk/nextjs"
 import { Toaster } from "@/components/ui/toaster"
 import { PageTransition } from "@/components/page-transition"
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
+const playfair = Playfair_Display({ 
+  subsets: ["latin"],
+  variable: "--font-playfair",
+})
 
 export const metadata = {
   title: "WisenAI - We Turn Lifetime Expertise into Better AI",
@@ -29,7 +33,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" className="dark">
-        <body className={`${inter.className} bg-slate-900 text-slate-50`}>
+        <body className={`${inter.className} ${playfair.variable} bg-slate-900 text-slate-50`}>
           <PageTransition>{children}</PageTransition>
           <Toaster />
         </body>

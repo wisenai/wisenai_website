@@ -47,15 +47,19 @@ export function SiteHeader({
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-700 bg-slate-900/95 backdrop-blur supports-[backdrop-filter]:bg-slate-900/60">
-      <div className="container flex h-16 items-center">
-        <Button variant="ghost" className="pl-1 pr-3 flex items-center ml-1 h-auto py-0.5 hover:bg-transparent" onClick={onHomeClick}>
+      <div className="container flex h-20 items-center">
+        <Button variant="ghost" className="pl-0 pr-6 flex flex-col items-center gap-0 h-auto py-0 hover:bg-transparent" onClick={onHomeClick}>
           <img 
             src="/wisenai-logo.png" 
             alt="WisenAI Logo" 
-            className="h-14 w-auto max-w-[180px] object-contain mix-blend-lighten brightness-125"
+            className="h-12 w-auto object-contain -mb-1"
           />
+          <span className="text-lg font-playfair tracking-wider">
+            <span className="text-slate-100">Wisen</span>
+            <span className="text-amber-400">AI</span>
+          </span>
         </Button>
-        <div className="flex-1" />
+        <div className="flex-1 min-w-8" />
         <nav className="hidden md:flex items-center gap-2">
           <Button
             variant="ghost"
