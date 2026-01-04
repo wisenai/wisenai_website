@@ -457,15 +457,34 @@ export default function Home() {
         <section ref={aboutRef} className="py-12 sm:py-16 md:py-20 lg:py-24">
           <div className="container px-4 md:px-6">
             <div className="mx-auto max-w-3xl text-center">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-sky-300 mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-sky-300 mb-2">
                 About WisenAI
               </h2>
+              <p className="text-sm text-slate-500 mb-6">Founded in 2024</p>
               <p className="text-lg md:text-xl text-slate-300 mb-4">
                 We bridge the gap between senior experience and AI innovation. The wisdom accumulated over decades of life is invaluable in training AI systems to be more human-centered and ethical.
               </p>
-              <p className="text-slate-400">
+              <p className="text-slate-400 mb-12">
                 Our mission: create meaningful opportunities for seniors to contribute their knowledge while ensuring fair compensation and flexible working conditions.
               </p>
+
+              {/* Logo Symbolism */}
+              <div className="border-t border-slate-700 pt-10">
+                <div className="flex justify-center mb-6">
+                  <img 
+                    src="/wisenai-logo.png" 
+                    alt="WisenAI Logo" 
+                    className="h-20 w-auto object-contain"
+                  />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-semibold text-sky-300 mb-4">Our Symbol</h3>
+                <p className="text-slate-300 mb-4">
+                  Our logo tells the story of WisenAI. On the left, organic brush strokes and tree rings represent the human touch—the beauty of handcrafted effort and the wisdom accumulated over many years that seniors possess. On the right, structured neural networks represent the world of artificial intelligence.
+                </p>
+                <p className="text-slate-400">
+                  Where they meet, something powerful emerges: better human input leads to better AI, and better AI creates better experiences for everyone—especially the seniors who helped build it. This virtuous cycle is at the heart of everything we do.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -792,3 +811,4 @@ export default function Home() {
     </div>
   )
 }
+

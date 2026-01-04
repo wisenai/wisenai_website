@@ -56,7 +56,7 @@ export function SiteHeader({
           />
           <span className="text-lg font-playfair tracking-wider">
             <span className="text-slate-100">Wisen</span>
-            <span className="text-amber-400">AI</span>
+            <span className="text-amber-400 ml-0.5">AI</span>
           </span>
         </Button>
         <nav className="hidden md:flex items-center gap-1 ml-6">
