@@ -87,7 +87,7 @@ export default function Home() {
           <div className="text-center max-w-4xl mx-auto mb-12">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-sky-300 opacity-0-initial animate-fade-in-up">
               We Turn Lifetime Expertise into Better AI
-            </h1>
+              </h1>
             <p className="text-xl sm:text-2xl text-slate-300 mt-6 opacity-0-initial animate-fade-in-up animate-delay-200">
               Seniors train smarter AI. Companies get better data.
             </p>
@@ -282,7 +282,7 @@ export default function Home() {
                   Who Can Join?
                 </h3>
                 <div className="bg-slate-900/50 rounded-2xl p-8 max-w-xl mx-auto">
-                  <div className="space-y-4">
+              <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <CheckCircle2 className="h-6 w-6 text-sky-400 flex-shrink-0" />
                       <span className="text-white">Age 55 or older</span>
@@ -389,7 +389,7 @@ export default function Home() {
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-sky-300 mb-4">
                 Why Your Experience Matters
-              </h2>
+                </h2>
               <p className="text-lg text-slate-300 max-w-2xl mx-auto">
                 Your decades of wisdom bring irreplaceable value to AI training. No technical skills required.
               </p>
@@ -442,7 +442,7 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-3 p-4 bg-slate-900/50 rounded-xl">
                 <DollarSign className="h-6 w-6 text-sky-400 flex-shrink-0" />
-                <span className="text-slate-300">Fair compensation</span>
+                <span className="text-slate-300">$15-50/hr tiered pay</span>
               </div>
             </div>
           </div>
@@ -528,14 +528,14 @@ export default function Home() {
                   className="block"
                 >
                   <div className="relative aspect-video overflow-hidden">
-                    <Image
-                      src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/StudentAISummit.jpg-dyflI3uG0h6HePcAItNYhgcNdSUlNQ.webp"
-                      alt="Newark Academy students at the AI Summit standing in front of The David Teeger Studio Arts wall"
-                      layout="fill"
-                      objectFit="cover"
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/StudentAISummit.jpg-dyflI3uG0h6HePcAItNYhgcNdSUlNQ.webp"
+                    alt="Newark Academy students at the AI Summit standing in front of The David Teeger Studio Arts wall"
+                    layout="fill"
+                    objectFit="cover"
                       className="object-center group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
+                  />
+                </div>
                 </a>
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-4">
@@ -549,8 +549,8 @@ export default function Home() {
                     className="block"
                   >
                     <h3 className="text-xl font-bold mb-2 text-sky-300 hover:text-sky-200 transition-colors">
-                      Newark Academy Students Lead First-Ever Student Artificial Intelligence Summit
-                    </h3>
+                    Newark Academy Students Lead First-Ever Student Artificial Intelligence Summit
+                  </h3>
                   </a>
                   <p className="text-slate-300 mb-4">
                     Students at Newark Academy organized and led a groundbreaking AI Summit, demonstrating leadership in
@@ -577,8 +577,8 @@ export default function Home() {
                 >
                   <div className="relative aspect-video overflow-hidden">
                     <div className="group-hover:scale-105 transition-transform duration-300 h-full">
-                      <BlogSummitImage />
-                    </div>
+                  <BlogSummitImage />
+                </div>
                   </div>
                 </a>
                 <div className="p-6">
@@ -593,8 +593,8 @@ export default function Home() {
                     className="block"
                   >
                     <h3 className="text-xl font-bold mb-2 text-sky-300 hover:text-sky-200 transition-colors">
-                      Three Short Hills Residents Present at Student Artificial Intelligence Summit
-                    </h3>
+                    Three Short Hills Residents Present at Student Artificial Intelligence Summit
+                  </h3>
                   </a>
                   <p className="text-slate-300 mb-4">
                     Local students showcase leadership and innovation in artificial intelligence at a groundbreaking
@@ -649,18 +649,18 @@ export default function Home() {
                     <div className="text-center p-6">
                       <FileText className="h-16 w-16 text-sky-400 mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
                       <p className="text-sky-300 font-semibold">Policy Paper</p>
-                    </div>
-                  </div>
+              </div>
+            </div>
                 </a>
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-4">
                     <Calendar className="h-4 w-4 text-sky-400" />
                     <time className="text-sm text-slate-400">May 10, 2025</time>
-                  </div>
+          </div>
                   <a href="/blog/ai-job-displacement-policy" className="block">
                     <h3 className="text-xl font-bold mb-2 text-sky-300 hover:text-sky-200 transition-colors">
                       AI & Job Displacement: Actions the U.S. Can Take
-                    </h3>
+                </h3>
                   </a>
                   <p className="text-slate-300 mb-4">
                     A policy paper exploring how the U.S. government should respond to AI-driven automation, with recommendations for workforce retraining, regulation, and social safety nets.
