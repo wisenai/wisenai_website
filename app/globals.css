@@ -155,3 +155,8 @@
 .opacity-0-initial {
   opacity: 0;
 }
+
+/* Offset for sticky header when scrolling to sections */
+section {
+  scroll-margin-top: 6rem;
+}
