@@ -50,7 +50,7 @@ export default function ApplyPage() {
               </div>
               <div className="flex items-center gap-3 p-3 bg-slate-800/50 rounded-lg border border-slate-700/50">
                 <DollarSign className="h-5 w-5 text-sky-400 flex-shrink-0" />
-                <span className="text-slate-300 text-sm">$15-25/hour</span>
+                <span className="text-slate-300 text-sm">$15-50/hour</span>
               </div>
               <div className="flex items-center gap-3 p-3 bg-slate-800/50 rounded-lg border border-slate-700/50">
                 <CheckCircle2 className="h-5 w-5 text-sky-400 flex-shrink-0" />

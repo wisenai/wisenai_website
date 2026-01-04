@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { SiteHeader } from "@/components/site-header"
 import { DecorativeImage } from "@/components/decorative-image"
 import { BioAnimation } from "@/components/bio-animation"
-import { Mail, Phone, Calendar, User, Building2, Home as HomeIcon, Clock, DollarSign, Shield, Brain, Heart, Scale, CheckCircle2, Lightbulb, Users, Target, Award, ChevronDown, FileText } from "lucide-react"
+import { Mail, Phone, Calendar, User, Building2, Home as HomeIcon, Clock, DollarSign, Shield, Brain, Heart, Scale, CheckCircle2, Lightbulb, Users, Target, Award, ChevronDown, FileText, Star } from "lucide-react"
 import { useRef, useEffect } from "react"
 import Image from "next/image"
 import { BlogSummitImage } from "@/components/blog-summit-image"
@@ -270,8 +270,8 @@ export default function Home() {
                   </div>
                   <div className="text-center p-6 bg-slate-900/50 rounded-xl">
                     <DollarSign className="h-8 w-8 text-sky-400 mx-auto mb-3" />
-                    <h4 className="font-bold text-white mb-1">$15-25/hr</h4>
-                    <p className="text-slate-500 text-sm">Fair compensation</p>
+                    <h4 className="font-bold text-white mb-1">$15-50/hr</h4>
+                    <p className="text-slate-500 text-sm">Tiered by expertise</p>
                   </div>
                 </div>
               </div>
@@ -304,6 +304,60 @@ export default function Home() {
                     No technical skills needed. If you can send an email, you can do this.
                   </p>
                 </div>
+              </div>
+
+              {/* Pay Tiers */}
+              <div className="mb-16">
+                <h3 className="text-2xl sm:text-3xl font-bold text-sky-300 text-center mb-8">
+                  Compensation Tiers
+                </h3>
+                <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                  {/* Basic Tier */}
+                  <div className="bg-slate-900/50 rounded-2xl p-6 border border-slate-700/50 hover:border-sky-600/50 transition-colors">
+                    <div className="text-center">
+                      <div className="inline-flex items-center justify-center w-12 h-12 bg-sky-900/50 rounded-full mb-4">
+                        <DollarSign className="h-6 w-6 text-sky-400" />
+                      </div>
+                      <h4 className="text-lg font-bold text-sky-400 mb-2">Basic Tasks</h4>
+                      <p className="text-3xl font-bold text-white mb-2">$15-20<span className="text-lg text-slate-400">/hr</span></p>
+                      <p className="text-slate-400 text-sm">
+                        Simple reviews, ratings, and feedback tasks
+                      </p>
+                    </div>
+                  </div>
+                  {/* Expert Tier */}
+                  <div className="bg-slate-900/50 rounded-2xl p-6 border-2 border-emerald-600/50 relative">
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-emerald-600 text-white text-xs font-bold rounded-full">
+                      MOST COMMON
+                    </div>
+                    <div className="text-center">
+                      <div className="inline-flex items-center justify-center w-12 h-12 bg-emerald-900/50 rounded-full mb-4">
+                        <Award className="h-6 w-6 text-emerald-400" />
+                      </div>
+                      <h4 className="text-lg font-bold text-emerald-400 mb-2">Expert Tasks</h4>
+                      <p className="text-3xl font-bold text-white mb-2">$25-35<span className="text-lg text-slate-400">/hr</span></p>
+                      <p className="text-slate-400 text-sm">
+                        Domain-specific reviews requiring professional expertise
+                      </p>
+                    </div>
+                  </div>
+                  {/* Specialist Tier */}
+                  <div className="bg-slate-900/50 rounded-2xl p-6 border border-amber-600/30 hover:border-amber-600/50 transition-colors">
+                    <div className="text-center">
+                      <div className="inline-flex items-center justify-center w-12 h-12 bg-amber-900/50 rounded-full mb-4">
+                        <Star className="h-6 w-6 text-amber-400" />
+                      </div>
+                      <h4 className="text-lg font-bold text-amber-400 mb-2">Specialist Tasks</h4>
+                      <p className="text-3xl font-bold text-white mb-2">$35-50<span className="text-lg text-slate-400">/hr</span></p>
+                      <p className="text-slate-400 text-sm">
+                        Complex technical or specialized domain expertise
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-slate-500 text-sm text-center mt-6">
+                  Your rate is determined by your expertise level and the complexity of tasks you qualify for.
+                </p>
               </div>
 
               {/* Ready to Start? */}

@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: 'How much can I earn?',
-    answer: "Compensation varies based on task complexity and your expertise level. Most contributors earn $15-25 per hour equivalent. You're paid for completed tasks, so you have full control over your earnings.",
+    answer: "Compensation varies based on task complexity and your expertise level. We offer tiered pay: Basic Tasks ($15-20/hr), Expert Tasks ($25-35/hr), and Specialist Tasks ($35-50/hr). You're paid for completed tasks, so you have full control over your earnings.",
   },
   {
     question: "What equipment do I need?",

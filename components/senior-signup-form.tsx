@@ -278,7 +278,7 @@ export function SeniorSignupForm() {
       <div>
         <label htmlFor="expectedRate" className="block text-sm font-medium text-slate-300 mb-2">
           Expected Hourly Rate <span className="text-red-400">*</span>
-          <span className="text-slate-400 text-xs ml-2">(We pay $15-$25/hour based on expertise)</span>
+          <span className="text-slate-400 text-xs ml-2">(We pay $15-$50/hour based on expertise tier)</span>
         </label>
         <select
           id="expectedRate"
@@ -289,11 +289,21 @@ export function SeniorSignupForm() {
           className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-colors"
         >
           <option value="">Select expected rate</option>
-          <option value="$15/hour">$15/hour</option>
-          <option value="$18/hour">$18/hour</option>
-          <option value="$20/hour">$20/hour</option>
-          <option value="$22/hour">$22/hour</option>
-          <option value="$25/hour">$25/hour</option>
+          <optgroup label="Basic Tasks ($15-20/hr)">
+            <option value="$15/hour">$15/hour</option>
+            <option value="$18/hour">$18/hour</option>
+            <option value="$20/hour">$20/hour</option>
+          </optgroup>
+          <optgroup label="Expert Tasks ($25-35/hr)">
+            <option value="$25/hour">$25/hour</option>
+            <option value="$30/hour">$30/hour</option>
+            <option value="$35/hour">$35/hour</option>
+          </optgroup>
+          <optgroup label="Specialist Tasks ($35-50/hr)">
+            <option value="$40/hour">$40/hour</option>
+            <option value="$45/hour">$45/hour</option>
+            <option value="$50/hour">$50/hour</option>
+          </optgroup>
         </select>
       </div>
 

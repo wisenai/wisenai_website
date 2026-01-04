@@ -9,7 +9,10 @@ WisenAI connects senior professionals with AI companies to create ethically-sour
 ### For Seniors
 - **Meaningful Work**: Share your lifetime of wisdom to help train ethical AI systems
 - **Flexible Schedule**: Work from home, on your own time, with no minimum commitments
-- **Fair Compensation**: Earn $15-25/hour for your valuable contributions
+- **Tiered Compensation**: Earn based on your expertise level:
+  - Basic Tasks: $15-20/hour
+  - Expert Tasks: $25-35/hour
+  - Specialist Tasks: $35-50/hour
 - **Simple Tasks**: Compare AI responses, rate quality, and share your expertise—no technical skills required
 
 ### For AI Companies
