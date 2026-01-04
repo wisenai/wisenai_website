@@ -59,8 +59,7 @@ export function SiteHeader({
             <span className="text-amber-400">AI</span>
           </span>
         </Button>
-        <div className="flex-1 min-w-8" />
-        <nav className="hidden md:flex items-center gap-2">
+        <nav className="hidden md:flex items-center gap-1 ml-6">
           <Button
             variant="ghost"
             size="sm"
@@ -109,6 +108,7 @@ export function SiteHeader({
           >
             Contact Us
           </Button>
+          <div className="flex-1 min-w-4" />
           <SignedOut>
             <Button variant="ghost" size="sm" asChild>
               <Link
