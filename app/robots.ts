@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/dashboard/',
     },
-    sitemap: 'https://wisenai.com/sitemap.xml',
+    sitemap: 'https://www.wisenai.com/sitemap.xml',
   }
 }
