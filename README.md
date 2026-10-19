@@ -20,7 +20,7 @@ The products we build on what senior professionals know. [More →](https://www.
 |---|---|
 | **[LegacyLoop](https://legacyloop.wisenai.com)** | For organizations: keep your experts' knowledge when they retire. An AI interviewer captures the moments where their judgment mattered, turns them into lessons they confirm, and replays them as realistic practice. [Try the demo →](https://legacyloop.wisenai.com/demo) |
 | **[WisenBench](https://bench.wisenai.com)** | For AI companies: how well do models handle the judgment calls senior professionals make? Tasks in law, finance and insurance, graded against an expert's approach by a panel of three judges. |
-| **WisenCares** | Our non-profit side, building free tools for older adults — starting with Akshi, an indoor guide for blind and low-vision people (coming soon). |
+| **WisenCares** | Our non-profit side, building free tools for older adults — starting with [Akshi](https://wisenai.github.io/akshi-site/), an indoor guide for blind and low-vision people (coming soon). |
 
 ## Research
 

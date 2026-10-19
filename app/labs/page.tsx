@@ -91,6 +91,12 @@ export default function LabsPage() {
                 and low-vision people that speaks the landmarks of your own home and warns of steps ahead — coming
                 soon to the App Store.
               </p>
+              <a
+                href="https://wisenai.github.io/akshi-site/"
+                className="inline-flex items-center gap-2 mt-5 text-amber-300 hover:text-amber-200 font-semibold"
+              >
+                About Akshi <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
           </div>
         </section>
