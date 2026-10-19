@@ -24,7 +24,7 @@ The products we build on what senior professionals know. [More →](https://www.
 
 ## Research
 
-Published work by Sathvik Subramanian on AI evaluation, older adults and the knowledge professionals carry — including *You Can't Simulate Grandma* (UserSim @ NeurIPS 2026) and *Formalize Once, Solve Many* (COLM 2026 workshop). See [wisenai.com/research](https://www.wisenai.com/research) and [OpenReview](https://openreview.net/profile?id=~Sathvik_Subramanian1).
+Published work by Sathvik Subramanian on AI evaluation, older adults and the knowledge professionals carry — including *You Can't Simulate Grandma* (UserSim @ NeurIPS 2026) and *Formalize Once, Solve Many* (COLM 2026 workshop). See [wisenai.com/research](https://www.wisenai.com/research), [OpenReview](https://openreview.net/profile?id=~Sathvik_Subramanian1) and the [AI Innovators: High School Edition podcast](https://www.youtube.com/playlist?list=PLGWVjFh0xuoI).
 
 ## Contact
 

@@ -6,6 +6,8 @@ import { PageFooter } from "@/components/page-footer"
 
 type Paper = { title: string; venue: string; href: string; summary: string }
 
+const PODCAST = "https://www.youtube.com/playlist?list=PLGWVjFh0xuoI"
+
 // Published and accepted work only.
 const PAPERS: Paper[] = [
   {
@@ -71,12 +73,17 @@ export default function ResearchPage() {
             <p className="text-xl text-slate-300 max-w-2xl mx-auto">
               Published work by Sathvik Subramanian on AI evaluation, older adults, and the knowledge professionals carry.
             </p>
-            <a
-              href="https://openreview.net/profile?id=~Sathvik_Subramanian1"
-              className="inline-flex items-center gap-1 mt-6 text-sky-400 hover:text-sky-300 font-medium"
-            >
-              OpenReview profile <ArrowUpRight className="h-4 w-4" />
-            </a>
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-6">
+              <a
+                href="https://openreview.net/profile?id=~Sathvik_Subramanian1"
+                className="inline-flex items-center gap-1 text-sky-400 hover:text-sky-300 font-medium"
+              >
+                OpenReview profile <ArrowUpRight className="h-4 w-4" />
+              </a>
+              <a href={PODCAST} className="inline-flex items-center gap-1 text-sky-400 hover:text-sky-300 font-medium">
+                Podcast <ArrowUpRight className="h-4 w-4" />
+              </a>
+            </div>
           </div>
         </section>
 
@@ -99,6 +106,19 @@ export default function ResearchPage() {
                 </li>
               ))}
             </ul>
+
+            <h2 className="text-2xl font-bold text-sky-300 mt-14 mb-4">Podcast</h2>
+            <a
+              href={PODCAST}
+              className="group block rounded-xl border border-slate-700 bg-slate-800/50 p-5 sm:p-6 hover:border-sky-700 transition-colors"
+            >
+              <p className="text-xs font-semibold uppercase tracking-wider text-sky-400 mb-2">YouTube</p>
+              <h3 className="text-lg sm:text-xl font-semibold text-white group-hover:text-sky-300 transition-colors">
+                AI Innovators: High School Edition
+                <ArrowUpRight className="inline h-4 w-4 ml-1 -mt-1" />
+              </h3>
+              <p className="text-slate-300 mt-2">Conversations on AI, hosted by Sathvik Subramanian.</p>
+            </a>
           </div>
         </section>
       </main>
