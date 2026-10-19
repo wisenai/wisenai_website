@@ -82,9 +82,6 @@ export function TrustBadges() {
             Request a Demo
             <span>→</span>
           </button>
-          <p className="text-slate-500 text-sm mt-4">
-            Or download our <a href="#" className="text-emerald-400 hover:underline">Data Quality Report (PDF)</a>
-          </p>
         </div>
       </div>
     </section>

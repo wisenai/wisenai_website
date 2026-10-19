@@ -10,8 +10,6 @@ import { Mail, Phone, Calendar, User, Building2, Home as HomeIcon, Clock, Dollar
 import { useRef, useEffect } from "react"
 import Image from "next/image"
 import { BlogSummitImage } from "@/components/blog-summit-image"
-import { ImpactStats } from "@/components/impact-stats"
-import { Testimonials } from "@/components/testimonials"
 import { TrustBadges } from "@/components/trust-badges"
 
 export default function Home() {
@@ -180,6 +178,18 @@ export default function Home() {
               </button>
             </div>
           </div>
+
+          {/* From Wisen Labs */}
+          <a
+            href="/labs"
+            className="group mt-6 max-w-5xl mx-auto flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 rounded-2xl border border-slate-700 bg-slate-800/60 px-6 py-4 hover:border-sky-700 transition-colors opacity-0-initial animate-fade-in-up animate-delay-400"
+          >
+            <span className="text-xs font-semibold uppercase tracking-wider text-amber-400 shrink-0">New from Wisen Labs</span>
+            <span className="text-slate-300">
+              <span className="text-white font-semibold">For organizations:</span> keep your experts&apos; knowledge when they retire with LegacyLoop — and see how AI models handle expert judgment on WisenBench.
+            </span>
+            <span className="text-sky-400 font-medium sm:ml-auto shrink-0 group-hover:translate-x-1 transition-transform">Explore →</span>
+          </a>
 
           <div className="flex justify-center mt-12 opacity-0-initial animate-fade-in animate-delay-500">
             <button 
@@ -366,7 +376,7 @@ export default function Home() {
                   Ready to Start?
                 </h3>
                 <p className="text-slate-300 mb-8 max-w-lg mx-auto">
-                  Join hundreds of seniors who are already contributing their wisdom and earning from home.
+                  Share your wisdom, help shape better AI, and earn from home.
                 </p>
                 <a 
                   href="/apply" 
@@ -447,12 +457,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Impact Stats Section */}
-        <ImpactStats />
-
-        {/* Testimonials Section */}
-        <Testimonials />
 
         <section ref={aboutRef} className="py-12 sm:py-16 md:py-20 lg:py-24">
           <div className="container px-4 md:px-6">
@@ -796,7 +800,7 @@ export default function Home() {
       <footer className="border-t border-border/40 py-6">
         <div className="container px-4 flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-center text-sm leading-loose text-slate-300 sm:text-left">
-            © 2025 WisenAI. All rights reserved.
+            © 2026 WisenAI. All rights reserved.
           </p>
           <nav className="flex gap-4">
             <a href="#" className="text-sm text-slate-300 hover:underline">

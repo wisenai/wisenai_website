@@ -92,6 +92,16 @@ export function SiteHeader({
           >
             Blog
           </Button>
+          <Button variant="ghost" size="sm" asChild>
+            <Link href="/labs" className="text-sm font-medium transition-colors hover:text-sky-300">
+              Labs
+            </Link>
+          </Button>
+          <Button variant="ghost" size="sm" asChild>
+            <Link href="/research" className="text-sm font-medium transition-colors hover:text-sky-300">
+              Research
+            </Link>
+          </Button>
           <Button
             variant="ghost"
             size="sm"
@@ -203,6 +213,12 @@ export function SiteHeader({
             onClick={() => handleNavigation(onBlogClick)}
           >
             Blog
+          </Button>
+          <Button variant="ghost" size="sm" asChild className="w-full justify-start">
+            <Link href="/labs">Labs</Link>
+          </Button>
+          <Button variant="ghost" size="sm" asChild className="w-full justify-start">
+            <Link href="/research">Research</Link>
           </Button>
           <Button
             variant="ghost"
