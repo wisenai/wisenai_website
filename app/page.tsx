@@ -11,6 +11,7 @@ import { useRef, useEffect } from "react"
 import Image from "next/image"
 import { BlogSummitImage } from "@/components/blog-summit-image"
 import { TrustBadges } from "@/components/trust-badges"
+import { HomeHighlights } from "@/components/home-highlights"
 
 export default function Home() {
   const topRef = useRef<HTMLDivElement>(null)
@@ -179,17 +180,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* From Wisen Labs */}
-          <a
-            href="/labs"
-            className="group mt-6 max-w-5xl mx-auto flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 rounded-2xl border border-slate-700 bg-slate-800/60 px-6 py-4 hover:border-sky-700 transition-colors opacity-0-initial animate-fade-in-up animate-delay-400"
-          >
-            <span className="text-xs font-semibold uppercase tracking-wider text-amber-400 shrink-0">New from Wisen Labs</span>
-            <span className="text-slate-300">
-              <span className="text-white font-semibold">For organizations:</span> keep your experts&apos; knowledge when they retire with LegacyLoop — and see how AI models handle expert judgment on WisenBench.
-            </span>
-            <span className="text-sky-400 font-medium sm:ml-auto shrink-0 group-hover:translate-x-1 transition-transform">Explore →</span>
-          </a>
 
           <div className="flex justify-center mt-12 opacity-0-initial animate-fade-in animate-delay-500">
             <button 
@@ -201,6 +191,9 @@ export default function Home() {
             </button>
           </div>
         </section>
+
+        {/* Products, podcast and research */}
+        <HomeHighlights />
 
         {/* For Seniors Journey Section */}
         <section ref={forSeniorsRef} className="py-12 sm:py-16 md:py-20 lg:py-24 bg-slate-800">
