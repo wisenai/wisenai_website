@@ -8,6 +8,7 @@ const PRODUCTS = [
     href: "https://legacyloop.wisenai.com/demo",
     cta: "Try the demo",
     accent: "text-sky-300",
+    note: "Patent pending",
   },
   {
     name: "WisenBench",
@@ -65,6 +66,7 @@ export function HomeHighlights() {
                 <span className="inline-flex items-center gap-1 text-white font-semibold group-hover:gap-2 transition-all">
                   {p.cta} <ArrowRight className="h-4 w-4" />
                 </span>
+                {"note" in p && <p className="text-slate-500 text-xs mt-3">{p.note}</p>}
               </a>
             ))}
           </div>
