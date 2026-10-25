@@ -54,6 +54,7 @@ export default function LabsPage() {
                     Learn more
                   </a>
                 </div>
+                <p className="text-slate-500 text-xs mt-4">LegacyLoop is patent pending.</p>
               </div>
               <video
                 src={`${LEGACYLOOP}/demo/legacyloop-demo.mp4`}
